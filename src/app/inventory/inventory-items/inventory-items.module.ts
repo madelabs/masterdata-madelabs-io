@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CreateItemModule } from './create-item/create-item.module';
 import { InventoryItemService } from './inventory-item.service';
 import { InventoryItemsPageComponent } from './inventory-items-page/inventory-items-page.component';
-import { CreateItemFormComponent } from './create-item-form/create-item-form.component';
 import { FormsModule } from '@angular/forms';
 import { AppCommonModule } from '../../common/app-common.module';
 import { RouterModule, Routes } from '@angular/router';
 import { InventoryItemSelectListModule } from './inventory-item-select-list/inventory-item-select-list.module';
-import { CreateInventoryItemPageComponent } from './create-item-page/create-item-page.component';
-import { UnitOfMeasureSelectListComponent } from '../unit-of-measure-select-list/unit-of-measure-select-list.component';
-import { UnitOfMeasureService } from '../unit-of-measure.service';
 import { InventoryItemDetailModule } from './inventory-item-detail/inventory-item-detail.module';
 import { InventoryItemListModule } from './inventory-item-list/inventory-item-list.module';
 import { ImportItemsPageComponent } from './import-items-page/import-items-page.component';
+import { UnitOfMeasureModule } from './unit-of-measure/unit-of-measure.module';
 
 const appRoutes: Routes = [
   { path: 'inventory', component: InventoryItemsPageComponent },
@@ -27,21 +25,19 @@ const appRoutes: Routes = [
     AppCommonModule,
     CommonModule,
     FormsModule,
+    CreateItemModule,
     InventoryItemDetailModule,
     InventoryItemListModule,
     InventoryItemSelectListModule,
+    UnitOfMeasureModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [
-    CreateItemFormComponent,
-    CreateInventoryItemPageComponent,
     InventoryItemsPageComponent,
-    UnitOfMeasureSelectListComponent,
     ImportItemsPageComponent
   ],
   providers: [
-    InventoryItemService,
-    UnitOfMeasureService
+    InventoryItemService
   ],
   exports: [
   ]

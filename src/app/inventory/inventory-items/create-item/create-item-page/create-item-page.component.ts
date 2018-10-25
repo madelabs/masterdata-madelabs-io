@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { InventoryItem } from '../../inventory-item';
 
 @Component({
   selector: 'create-inventory-item-page',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateInventoryItemPageComponent implements OnInit {
   
+  @Input()
+  item: InventoryItem;
+
   constructor() { }
 
   ngOnInit() {

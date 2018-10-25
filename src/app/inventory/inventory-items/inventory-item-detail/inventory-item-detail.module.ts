@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CreateItemModule } from '../create-item/create-item.module';
 import { InventoryItemDetailComponent } from './inventory-item-detail.component';
 import { FormsModule } from '@angular/forms';
 import { VendorListModule } from '../../../purchasing/vendors/vendor-list/vendor-list.module';
@@ -23,6 +24,7 @@ import { PricingMatrixComponent } from '../pricing-matrix/pricing-matrix.compone
   imports: [
     AppCommonModule,
     CommonModule,
+    CreateItemModule,
     CreatePurchaseOrderPageModule,
     CreateRoutingPageModule,
     CreateVendorPageModule,

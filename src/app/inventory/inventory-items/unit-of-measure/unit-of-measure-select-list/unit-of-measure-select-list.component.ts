@@ -2,7 +2,7 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NgModel, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { UnitOfMeasureService } from '../unit-of-measure.service';
-import { SelectListItem } from '../../common/select-list/select-list-item';
+import { SelectListItem } from '../../../../common/select-list/select-list-item';
 
 @Component({
   selector: 'unit-of-measure-select-list',

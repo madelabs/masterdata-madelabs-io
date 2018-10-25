@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { CreateInventoryItem } from './create-inventory-item';
-import { InventoryItemService } from '../inventory-item.service';
+import { InventoryItemService } from '../../inventory-item.service';
 
 @Component({
   selector: 'create-inventory-item-form',
@@ -9,11 +9,16 @@ import { InventoryItemService } from '../inventory-item.service';
   styleUrls: ['./create-item-form.component.css']
 })
 export class CreateItemFormComponent implements OnInit {
-  model: CreateInventoryItem = new CreateInventoryItem();
+
+  @Input()
+  model: CreateInventoryItem;
 
   constructor(private service: InventoryItemService) { }
 
   ngOnInit() {
+    if (!this.model) {
+      this.model = new CreateInventoryItem()
+    }
   }
 
   submit(): void {

@@ -4,7 +4,7 @@ import { InventoryItem } from '../inventory/inventory-items/inventory-item';
 import { Routing } from '../manufacturing/routing';
 import { WorkOrderStatus } from './work-order-status';
 import { WorkOrderStep } from './work-order-step';
-import { UnitOfMeasure } from '../inventory/unit-of-measure';
+import { UnitOfMeasure } from '../inventory/inventory-items/unit-of-measure/unit-of-measure';
 
 export class WorkOrder extends DomainModel{
     constructor(

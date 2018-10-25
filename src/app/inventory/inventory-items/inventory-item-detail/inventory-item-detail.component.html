@@ -219,7 +219,7 @@
   </side-panel>
   
   <side-panel [visible]="isEditItemVisible" (onToggleVisibility)="toggleEditItemVisibility($event)">
-    <create-item-page [item]="model"></create-item-page>
+    <create-inventory-item-page [item]="model"></create-inventory-item-page>
   </side-panel>
   
   <pre>{{ model | json }}</pre>
