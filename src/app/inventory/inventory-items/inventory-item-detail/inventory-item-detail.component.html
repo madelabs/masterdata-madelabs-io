@@ -1,10 +1,10 @@
 <div *ngIf="model">
     <p class="actions">
-        <button class="btn btn-default">Edit</button>
-        <button class="btn btn-default" (click)="toggleCreateWorkOrderVisibility(true)">Build</button>
-        <button class="btn btn-default">Buy</button>
-        <button class="btn btn-default">Quote</button>
-        <button class="btn btn-default">Sell</button>
+        <button class="btn btn-default" (click)="toggleEditItemVisibility(true)">Edit</button>
+        <!--<button class="btn btn-default" (click)="toggleCreateWorkOrderVisibility(true)">Build</button>-->
+        <!--<button class="btn btn-default">Buy</button>-->
+        <!--<button class="btn btn-default">Quote</button>-->
+        <!--<button class="btn btn-default">Sell</button>-->
         <button class="btn btn-default">Print</button>
         <button class="btn btn-danger">Disable</button>
     </p>
@@ -76,36 +76,36 @@
         <li class="nav-item">
             <a class="nav-link active" href="" data-toggle="tab" data-target="#stats">Stats</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="tab" data-target="#vendors">Vendors</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="tab" data-target="#routers">Routers</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="tab" data-target="#boms">Bill Of Materials</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="tab" data-target="#purchase-orders">Purchase Orders</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="" data-toggle="tab" data-target="#work-orders">Work Orders</a>
-            </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="tab" data-target="#pricing">Pricing</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="tab" data-target="#stock">Stock</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="tab" data-target="#media">Media</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="tab" data-target="#categories">Categories</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="" data-toggle="tab" data-target="#catalogs">Catalogs</a>
-            </li>
+        <!--<li class="nav-item">-->
+        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#vendors">Vendors</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#routers">Routers</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#boms">Bill Of Materials</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#purchase-orders">Purchase Orders</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--        <a class="nav-link" href="" data-toggle="tab" data-target="#work-orders">Work Orders</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#pricing">Pricing</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#stock">Stock</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#media">Media</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#categories">Categories</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--        <a class="nav-link" href="" data-toggle="tab" data-target="#catalogs">Catalogs</a>-->
+        <!--</li>-->
         <li class="nav-item">
             <a class="nav-link" href="" data-toggle="tab" data-target="#activity">Activity</a>
         </li>
@@ -134,48 +134,48 @@
             <label for="cost">Cost per Unit:</label>
             <span class="form-control">$3.14</span><br>
         </div>
-        <div id="vendors" class="tab-pane">
-            <p>
-                <button class="btn btn-primary" (click)="toggleCreateVendorVisibility()">Create</button>
-            </p>
-            <vendor-list (onSelected)="onVendorSelected($event)"></vendor-list>
-        </div>
-        <div id="routers" class="tab-pane">
-            <p>
-                <button class="btn btn-primary" (click)="toggleCreateRoutingVisibility()">Create</button>
-            </p>
-            <routing-list (onSelected)="onRoutingSelected($event)"></routing-list>
-        </div>
-        <div id="boms" class="tab-pane">
-            <p class="todo">Todo: list of boms.</p>
-        </div>
-        <div id="purchase-orders" class="tab-pane">
-            <p>
-                <button class="btn btn-primary" (click)="toggleCreatePurchaseOrderVisibility()">Create</button>
-            </p>
-            <purchase-order-list (onSelected)="onPurchaseOrderSelected($event)"></purchase-order-list>
-        </div>
-        <div id="work-orders" class="tab-pane">
-            <p>
-                <button class="btn btn-primary" (click)="toggleCreateWorkOrderVisibility()">Create</button>
-            </p>
-            <work-order-list (onSelected)="onWorkOrderSelected($event)"></work-order-list>
-        </div>
-        <div id="pricing" class="tab-pane">
-            <pricing-matrix></pricing-matrix>
-        </div>
-        <div id="stock" class="tab-pane">
-            <inventory-stock-list (onSelected)="onInventoryStockSelected($event)"></inventory-stock-list>
-        </div>
-        <div id="media" class="tab-pane">
-            <media-list></media-list>
-        </div>
-        <div id="categories" class="tab-pane">
-            <p class="todo">A list of categories.</p>
-        </div>
-        <div id="catalogs" class="tab-pane">
-            <p class="todo">A list of catalogs.</p>
-        </div>
+        <!--<div id="vendors" class="tab-pane">-->
+        <!--    <p>-->
+        <!--        <button class="btn btn-primary" (click)="toggleCreateVendorVisibility()">Create</button>-->
+        <!--    </p>-->
+        <!--    <vendor-list (onSelected)="onVendorSelected($event)"></vendor-list>-->
+        <!--</div>-->
+        <!--<div id="routers" class="tab-pane">-->
+        <!--    <p>-->
+        <!--        <button class="btn btn-primary" (click)="toggleCreateRoutingVisibility()">Create</button>-->
+        <!--    </p>-->
+        <!--    <routing-list (onSelected)="onRoutingSelected($event)"></routing-list>-->
+        <!--</div>-->
+        <!--<div id="boms" class="tab-pane">-->
+        <!--    <p class="todo">Todo: list of boms.</p>-->
+        <!--</div>-->
+        <!--<div id="purchase-orders" class="tab-pane">-->
+        <!--    <p>-->
+        <!--        <button class="btn btn-primary" (click)="toggleCreatePurchaseOrderVisibility()">Create</button>-->
+        <!--    </p>-->
+        <!--    <purchase-order-list (onSelected)="onPurchaseOrderSelected($event)"></purchase-order-list>-->
+        <!--</div>-->
+        <!--<div id="work-orders" class="tab-pane">-->
+        <!--    <p>-->
+        <!--        <button class="btn btn-primary" (click)="toggleCreateWorkOrderVisibility()">Create</button>-->
+        <!--    </p>-->
+        <!--    <work-order-list (onSelected)="onWorkOrderSelected($event)"></work-order-list>-->
+        <!--</div>-->
+        <!--<div id="pricing" class="tab-pane">-->
+        <!--    <pricing-matrix></pricing-matrix>-->
+        <!--</div>-->
+        <!--<div id="stock" class="tab-pane">-->
+        <!--    <inventory-stock-list (onSelected)="onInventoryStockSelected($event)"></inventory-stock-list>-->
+        <!--</div>-->
+        <!--<div id="media" class="tab-pane">-->
+        <!--    <media-list></media-list>-->
+        <!--</div>-->
+        <!--<div id="categories" class="tab-pane">-->
+        <!--    <p class="todo">A list of categories.</p>-->
+        <!--</div>-->
+        <!--<div id="catalogs" class="tab-pane">-->
+        <!--    <p class="todo">A list of catalogs.</p>-->
+        <!--</div>-->
         <div id="activity" class="tab-pane">
             <audit-list [list]="model.activity"></audit-list>
         </div>
@@ -216,6 +216,10 @@
 
   <side-panel [visible]="isInventoryStockDetailVisible" (onToggleVisibility)="toggleInventoryStockDetailVisibility($event)">
       <inventory-stock-detail></inventory-stock-detail>
+  </side-panel>
+  
+  <side-panel [visible]="isEditItemVisible" (onToggleVisibility)="toggleEditItemVisibility($event)">
+    <create-item-page [item]="model"></create-item-page>
   </side-panel>
   
   <pre>{{ model | json }}</pre>

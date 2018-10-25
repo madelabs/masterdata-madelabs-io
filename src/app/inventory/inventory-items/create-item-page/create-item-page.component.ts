@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-item-page.component.css']
 })
 export class CreateInventoryItemPageComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {

@@ -18,6 +18,7 @@ export class InventoryItemDetailComponent implements OnInit {
   isCreateRoutingVisible: boolean = false;
   isCreateVendorVisible: boolean = false;
   isCreateWorkOrderVisible: boolean = false;
+  isEditItemVisible: boolean = false;
   isInventoryStockDetailVisible: boolean = false;
   isPurchaseOrderDetailVisible: boolean = false;
   isRoutingDetailVisible: boolean = false;
@@ -70,6 +71,10 @@ export class InventoryItemDetailComponent implements OnInit {
 
   toggleCreateVendorVisibility(): void {
     this.isCreateVendorVisible = !this.isCreateVendorVisible;
+  }
+  
+  toggleEditItemVisibility(): void {
+    this.isEditItemVisible = !this.isEditItemVisible;
   }
 
   toggleInventoryStockDetailVisibility(): void {
