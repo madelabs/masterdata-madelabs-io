@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WorkOrderDetailModule } from './work-order-detail/work-order-detail.module';
 import { WorkOrderListModule } from './work-order-list/work-order-list.module';
 import { CreateWorkOrderPageModule } from './create-work-order-page/create-work-order-page.module';
-import { FullCalendarModule } from 'ng-fullcalendar';
+// import { FullCalendarModule } from 'ng-fullcalendar';  // failing due to jQuery/types issue
 import { AppCommonModule } from '../common/app-common.module';
 
 const appRoutes: Routes = [
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
     AppCommonModule,
     CommonModule,
     CreateWorkOrderPageModule,
-    FullCalendarModule,
+    // FullCalendarModule,
     WorkOrderDetailModule,
     WorkOrderListModule,
     RouterModule.forRoot(appRoutes)
