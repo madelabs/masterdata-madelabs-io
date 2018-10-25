@@ -11,7 +11,6 @@ import { AdminModule } from './admin/admin.module';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { InventoryModule } from './inventory/inventory.module';
 import { ManufacturingModule } from './manufacturing/manufacturing.module';
-import { MarketingModule } from './marketing/marketing.module';
 import { PurchasingModule } from './purchasing/purchasing.module';
 import { SalesModule } from './sales/sales.module';
 import { WorkOrdersModule } from './work-orders/work-orders.module';
@@ -40,7 +39,6 @@ const appRoutes: Routes = [
     FormsModule,
     InventoryModule,
     ManufacturingModule,
-    MarketingModule,
     PurchasingModule,
     SalesModule,
     WorkOrdersModule,
