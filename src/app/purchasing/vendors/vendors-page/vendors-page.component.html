@@ -1,0 +1,17 @@
+<h1>Vendors</h1>
+<p>
+    <button type="button" (click)="toggleCreateVisibility()" class="btn btn-primary">Create</button>
+    <button type="button" class="btn btn-default">Import</button>
+    <button type="button" class="btn btn-default">Export</button>
+    <button type="button" class="btn btn-default">Print</button>
+</p>
+
+<vendor-list (onSelected)="onItemSelected($event)"></vendor-list>
+
+<side-panel name="vendorCreate" [visible]="isCreateVisible" (onToggleVisibility)="toggleCreateVisibility($event)">
+  <create-vendor-page></create-vendor-page>
+</side-panel>
+
+<side-panel name="vendorDetail" [visible]="isDetailVisible" (onToggleVisibility)="toggleDetailVisibility($event)">
+  <vendor-detail [id]="selectedItemId"></vendor-detail>
+</side-panel>

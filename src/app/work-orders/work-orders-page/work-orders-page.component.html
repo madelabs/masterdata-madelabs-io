@@ -1,0 +1,13 @@
+<p class="actions">
+    <button type="button" (click)="toggleCreateVisibility()" class="btn btn-primary">Create Work Order</button>
+</p>
+
+<work-order-list (onSelected)="onWorkOrderSelected($event)"></work-order-list>
+
+<side-panel [visible]="isCreateVisible" (onToggleVisibility)="toggleCreateVisibility($event)">
+    <create-work-order-page></create-work-order-page>
+</side-panel>
+
+<side-panel [visible]="isDetailVisible" (onToggleVisibility)="toggleDetailVisibility($event)">
+    <work-order-detail [id]="selectedWorkOrderId"></work-order-detail>
+</side-panel>

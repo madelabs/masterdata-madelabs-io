@@ -1,0 +1,24 @@
+<form #createWorkOrderForm="ngForm" (ngSubmit)="submit()" novalidate>
+    <div class="form-group">
+        <label for="inventoryItemId">Inventory Item</label>
+        <inventory-item-select-list name="inventoryItemId" [(ngModel)]="model.inventoryItemId" required></inventory-item-select-list>
+    </div>
+    
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity"
+            required [(ngModel)]="model.quantity" name="quantity" #quantity="ngModel">
+        <div [hidden]="quantity.valid || quantity.pristine" class="alert alert-danger">
+            Quantity is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="routingId">Routing</label>
+        <routing-select-list name="routingId" [(ngModel)]="model.routingId" required></routing-select-list>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!createWorkOrderForm.form.valid">Create</button>
+</form>
+
+{{ model | json }}

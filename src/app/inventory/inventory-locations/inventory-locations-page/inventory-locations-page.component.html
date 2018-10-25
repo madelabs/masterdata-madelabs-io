@@ -1,0 +1,10 @@
+<h2>Inventory Locations</h2>
+<inventory-location-list (onSelected)="onLocationSelected($event)"></inventory-location-list>
+
+<side-panel [visible]="isCreateVisible" (onToggleVisibility)="toggleCreateVisibility($event)">
+    <create-inventory-location-page></create-inventory-location-page>
+</side-panel>
+
+<side-panel [visible]="isDetailVisible" (onToggleVisibility)="toggleDetailVisibility($event)">
+    <inventory-location-detail [id]="selectedLocationId"></inventory-location-detail>
+</side-panel>

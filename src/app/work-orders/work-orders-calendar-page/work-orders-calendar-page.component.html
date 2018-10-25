@@ -1,0 +1,9 @@
+<ng-fullcalendar [options]="calendarOptions"></ng-fullcalendar>
+
+<side-panel [visible]="isCreateVisible" (onToggleVisibility)="toggleCreateVisibility($event)">
+    <create-work-order-page></create-work-order-page>
+</side-panel>
+
+<side-panel [visible]="isDetailVisible" (onToggleVisibility)="toggleDetailVisibility($event)">
+    <work-order-detail [id]="selectedWorkOrderId"></work-order-detail>
+</side-panel>

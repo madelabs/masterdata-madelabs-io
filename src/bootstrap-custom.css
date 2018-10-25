@@ -1,0 +1,124 @@
+body {
+    background-color: #2f323b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;
+    color: #949ba2;
+}
+
+/* buttons */
+.btn {
+    font-size: 1em;
+    color: #949ba2;
+    margin-right: 5px;
+}
+.btn-default {
+    background-color: transparent;
+    border: 1px solid #979797;
+}
+.btn-default:hover {
+    background-color: #B6B6B6;
+    color: #fff;
+}
+.btn-danger {
+    background-color: transparent;
+    border: 1px solid #dc3545;
+}
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid #1D8BAC;
+}
+.btn-primary:hover:enabled {
+    background-color: #176E86;
+    border: 1px solid #1D8BAC;
+}
+.btn-success {
+    background-color: transparent;
+    border: 1px solid #1bbf89;
+}
+.btn-success:disabled {
+    background-color: transparent;
+    border: 1px solid #A5A5A5;
+}
+.btn-success:hover {
+    color: inherit;
+}
+.btn-success:hover:enabled {
+    background-color: #127E5A;
+    border: 1px solid #1bbf89;
+}
+
+/* cards */
+.card {
+    background-color: #3D3F48;
+}
+
+/* dropdown menu */
+.dropdown-menu {
+    font-size: 1em;
+}
+
+/* forms */
+form {
+    text-align: left;
+}
+form .form-control {
+    font-size: 1em;
+}
+form label {
+    font-weight: lighter;
+}
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}  
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}
+span.form-control {
+    padding-left:0px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0px;
+}
+
+/* typography */
+h1 {
+    color: #fff
+}
+h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #fff;
+}
+h3 {
+    font-size: 1.5em;
+}
+
+/* tables */
+.table {
+    background-color: #3B3D46;
+}
+.table thead th {
+    color: #fff;
+    border-top: none;
+    border-bottom: 1px solid #ccc;
+}
+.table tbody td {
+    border: none;
+}
+
+/* tabs */
+.nav-tabs .nav-link.active, .nav-tabs .nav-link.active:hover {
+    background-color: #1D8BAC;
+    color: #fff;
+}
+.nav-tabs .nav-link:hover {
+    color: #23add9;
+}
+.tab-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}

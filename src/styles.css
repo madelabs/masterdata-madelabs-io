@@ -1,0 +1,30 @@
+/* import global styles */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "./bootstrap-custom.css";
+
+a {
+    color: #23add9;
+}
+
+/* action button/menu items */
+.actions {    
+}
+
+.badge {
+    background-color:green;
+    font-size: 10pt;
+    vertical-align: text-top;
+}
+
+label {
+    margin-right: 5px;
+}
+
+/* marketing section only to center content */
+.marketing-page {
+    text-align: center;
+}
+
+.padded {
+    padding: 15px;
+}

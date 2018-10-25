@@ -1,0 +1,62 @@
+<form #createInventoryItemForm="ngForm" (ngSubmit)="submit()" novalidate>
+    <div class="form-group">
+      <label for="code">Code</label>
+      <input type="text" id="code" name="code" class="form-control" required
+        [(ngModel)]="model.code" #code="ngModel">
+      <div [hidden]="code.valid || code.pristine" class="alert alert-danger">
+          Code is required
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="name">Name</label>
+      <textarea id="name" name="name" class="form-control"
+        [(ngModel)]="model.name" #name="ngModel"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" name="description" class="form-control"
+        [(ngModel)]="model.description" #description="ngModel"></textarea>
+    </div>
+  
+    <div class="form-group">
+        <label for="height">Height</label>
+        <input type="number" id="height" name="height" class="form-control"
+          [(ngModel)]="model.height" #height="ngModel">
+    </div>
+
+    <div class="form-group">
+        <label for="length">Length</label>
+        <input type="number" id="length" name="length" class="form-control"
+          [(ngModel)]="model.length" #length="ngModel">
+    </div>
+
+    <div class="form-group">
+        <label for="width">Width</label>
+        <input type="number" id="width" name="width" class="form-control"
+          [(ngModel)]="model.width" #width="ngModel">
+    </div>
+
+    <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="weight" id="weight" name="weight" class="form-control"
+          [(ngModel)]="model.weight" #weight="ngModel">
+    </div>
+  
+    <div class="form-group">
+        <label for="revision">Revision</label>
+        <input type="text" id="revision" name="revision" class="form-control"
+          [(ngModel)]="model.revision" #revision="ngModel">
+    </div>
+
+    <div class="form-group">
+        <label for="unitOfMeasure">Unit Of Measure</label>
+        <unit-of-measure-select-list name="unitOfMeasureId" [(ngModel)]="model.unitOfMeasureId"></unit-of-measure-select-list>
+    </div>
+
+    <button type="button" class="btn btn-default">Cancel</button>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+  
+  <pre>{{ model | json }}</pre>

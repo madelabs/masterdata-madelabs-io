@@ -1,0 +1,65 @@
+<div *ngIf="model">
+  <p class="actions">
+      <button class="btn btn-default">Edit</button>
+      <button class="btn btn-default">Order</button>
+      <button class="btn btn-default">Print</button>
+      <button class="btn btn-danger">Disable</button>
+  </p>
+
+  <h2>{{ model.name }} <span class="badge">{{ model.status }}</span></h2>
+
+  <div class="form-group">
+    <label for="rating">Rating</label>
+    <span id="rating" class="form-control">{{ model.rating }}</span>
+  </div>
+
+  <div class="form-group">
+      <label for="notes">Notes</label>
+      <span id="notes" class="form-control">{{ model.notes }}</span>
+  </div>
+
+  <ul class="nav nav-tabs">
+      <li class="nav-item">
+          <a class="nav-link active" href="" data-toggle="tab" data-target="#orders">Purchase Orders</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="" data-toggle="tab" data-target="#items">Items</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="" data-toggle="tab" data-target="#contacts">Contacts</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="" data-toggle="tab" data-target="#activity">Activity</a>
+      </li>
+  </ul>
+  <div class="tab-content">
+      <div id="orders" class="tab-pane active">
+          <p>
+              <button class="btn btn-primary" (click)="toggleCreatePurchaseOrderVisibility()">Create</button>
+          </p>
+          <purchase-order-list (onSelected)="onPurchaseOrderSelected($event)"></purchase-order-list>
+      </div>
+      <div id="items" class="tab-pane">
+          <inventory-item-list></inventory-item-list>
+      </div>
+      <div id="contacts" class="tab-pane">
+          <p>
+              <button class="btn btn-primary" (click)="toggleCreateRoutingVisibility()">Create</button>
+          </p>
+          <p class="todo">List of contacts for this vendor</p>
+      </div>
+      <div id="activity" class="tab-pane">
+          <audit-list [list]="model.activity"></audit-list>
+      </div>
+  </div>
+</div>
+
+<side-panel [visible]="isCreatePurchasingOrderVisible" (onToggleVisibility)="toggleCreatePurchaseOrderVisibility($event)">
+  <create-purchase-order-page></create-purchase-order-page>
+</side-panel>
+
+<side-panel [visible]="isPurchasingOrderDetailVisible" (onToggleVisibility)="togglePurchaseOrderDetailVisibility($event)">
+    <purchase-order-detail></purchase-order-detail>
+</side-panel>
+
+<pre>{{ model | json }}</pre>

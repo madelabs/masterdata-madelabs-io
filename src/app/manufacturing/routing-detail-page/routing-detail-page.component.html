@@ -1,0 +1,31 @@
+<div *ngIf="model">
+  <p>
+    <button class="btn btn-default">Edit</button>
+    <button class="btn btn-danger">Disable</button>
+  </p>
+
+    <h2>Routing {{ model.code }}</h2>
+    <span class="badge">{{ model.status }}</span>
+  
+    <div class="form-group">
+      <label for="inventoryItem">Item</label>
+      <span id="inventoryItem" class="form-control">{{ model.inventoryItem }}</span>
+    </div>
+  
+    <div class="form-group">
+        <label for="description">Description</label>
+        <span id="description" class="form-control">{{ model.description }}</span>
+    </div>
+  
+    <h3>Steps</h3>
+    
+    <div *ngFor="let step of model.steps" class="step-container">
+      <div class="step">
+        <strong>{{ step.name }}</strong>
+      </div>
+    
+      <span class="oi oi-arrow-circle-bottom"></span>
+    </div>
+  </div>
+  
+  {{ model | json }}

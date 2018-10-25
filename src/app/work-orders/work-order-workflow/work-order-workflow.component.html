@@ -1,0 +1,11 @@
+<h3>Current Progress</h3>
+
+<div *ngFor="let step of order.steps" class="step-container">
+  <div class="step" [ngClass]="{ 'complete': step.status == 'Complete' }">
+    <strong>{{ step.name }}</strong><br>
+    <span>Complete: {{ step.completedQuantity }}</span>
+    <span *ngIf="step.scrapQuantity > 0"><br>Scrapped: {{ step.scrapQuantity }}</span>
+  </div>
+
+  <span class="oi oi-arrow-circle-bottom"></span>
+</div>

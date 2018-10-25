@@ -1,0 +1,29 @@
+<div style="display: block">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+      <div class="card">
+        <h3>OEE</h3>
+        <span>79%</span>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="card">
+        <h3>Capacity Utilization</h3>
+        <span>88%</span>
+      </div>      
+  </div>
+  <div class="col-md-4">
+      <div class="card">
+          <h3>Safety Incidents</h3>
+          <span>3 / this year</span>
+      </div>      
+  </div>
+</div>

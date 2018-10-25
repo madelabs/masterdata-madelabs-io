@@ -1,0 +1,33 @@
+<form #createVendorForm="ngForm" (ngSubmit)="submit()" novalidate>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="form-control" required
+      [(ngModel)]="model.name" #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        Name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="notes">Notes</label>
+    <textarea id="notes" name="notes" class="form-control"
+      [(ngModel)]="model.notes" #notes="ngModel"></textarea>
+  </div>
+
+  <div class="form-group">
+      <label for="rating">Rating</label>
+      <input type="number" id="rating" name="rating" class="form-control"
+        [(ngModel)]="model.rating" #rating="ngModel">
+  </div>
+
+  <div class="form-group">
+      <label for="status">Status</label>
+      <input type="text" id="status" name="status" class="form-control"
+        [(ngModel)]="model.status" #status="ngModel">
+  </div>
+
+  <button type="button" class="btn btn-default">Cancel</button>
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+<pre>{{ model | json }}</pre>

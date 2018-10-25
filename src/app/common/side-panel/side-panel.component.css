@@ -1,0 +1,19 @@
+section {
+    width: 95%;
+    position: fixed; 
+    right: 0px; 
+    top: 59px; 
+    height: 100%; 
+    background-color: #434854;
+    border-left: 2px solid #513b0a; 
+    padding: 15px;
+    box-shadow: -5px 0px 21px #161616;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+    section {
+        width: 50%; 
+    }
+}

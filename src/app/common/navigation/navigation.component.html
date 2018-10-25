@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg sticky-top">
+  <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+    Made
+    <span class="version">v.1.0</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>    
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active"><a routerLink="/features" class="nav-link">Features</a></li>
+      <li class="nav-item" routerLinkActive="active"><a routerLink="/pricing" class="nav-link">Pricing</a></li>
+      <li class="nav-item" routerLinkActive="active"><a routerLink="/login" class="nav-link">Login</a></li>
+      <li class="nav-item" routerLinkActive="active"><a routerLink="/signup" class="nav-link">Try for Free</a></li>
+    </ul>
+
+    <ul class="navbar-nav mr-auto">
+      <!--<li class="nav-item" routerLinkActive="active"><a routerLink="/my-work" class="nav-link">My Work</a></li>
+      <li class="nav-item" routerLinkActive="active"><a routerLink="/dashboard" class="nav-link">Dashboard</a></li>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventory <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a routerLink="/inventory/items" class="nav-link">Items</a></li>
+          <li class="nav-item"><a routerLink="/inventory/locations" class="nav-link">Locations</a></li>
+          <li class="nav-item"><a routerLink="/inventory/stock" class="nav-link">Stock</a></li>
+        </ul>  
+      </li>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Purchasing <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a routerLink="/purchasing/vendors" class="nav-link">Vendors</a></li>
+          <li class="nav-item"><a routerLink="/purchasing/purchase-orders" class="nav-link">Purchase Orders</a></li>
+          <li class="nav-item"><a routerLink="/purchasing/invoices" class="nav-link">Invoices</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sales <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li class="nav-item"><a routerLink="/sales/customers" class="nav-link">Customers</a></li>
+            <li class="nav-item"><a routerLink="/sales/sales-orders" class="nav-link">Sales Orders</a></li>
+          </ul>
+      </li>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Work Orders <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a routerLink="/work-orders/calendar" class="nav-link">Calendar</a></li>
+          <li class="nav-item"><a routerLink="/work-orders" class="nav-link">List</a></li>
+        </ul>
+      </li>-->
+      <li class="nav-item" routerLinkActive="active"><a routerLink="/inventory/items" class="nav-link">Items</a></li>
+      <li class="nav-item" routerLinkActive="active"><a routerLink="/settings" class="nav-link">Settings</a></li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <a routerLink="/profile"><img src="assets/profile-sm.jpg" class="profile rounded-circle" alt="Profile"></a>
+  </div>
+</nav>

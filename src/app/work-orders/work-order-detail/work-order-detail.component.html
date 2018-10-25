@@ -1,0 +1,35 @@
+<div *ngIf="model">
+  <p>
+    <button class="btn btn-default">Edit</button>
+    <button class="btn btn-default">Work</button>
+    <button class="btn btn-default">Split</button>
+    <button class="btn btn-danger">Cancel</button>
+  </p>
+
+  <h2>Work Order #{{ model.id }}</h2>
+  <span class="badge">{{ model.status }}</span>
+
+  <div class="form-group">
+    <label for="inventoryItem">Item</label>
+    <span id="inventoryItem" class="form-control">{{ model.inventoryItem }}</span>
+  </div>
+
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <span id="quantity" class="form-control">{{ model.quantity }} {{ model.unitOfMeasure }}</span>
+  </div>
+
+  <div class="form-group">
+      <label for="routing">Routing</label>
+      <span id="routing" class="form-control">{{ model.routing }}</span>
+  </div>
+
+  <div class="form-group">
+      <label for="billOfMaterial">Bill of Material</label>
+      <span id="billOfMaterial" class="form-control">{{ model.billOfMaterial }}</span>
+  </div>
+
+  <work-order-workflow [order]="model"></work-order-workflow>
+</div>
+
+{{ model | json }}

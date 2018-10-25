@@ -1,0 +1,36 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="" data-toggle="tab" data-target="#company">Company</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="" data-toggle="tab" data-target="#billing">Billing</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="" data-toggle="tab" data-target="#users">Users</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="" data-toggle="tab" data-target="#equipment">Equipment</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="" data-toggle="tab" data-target="#activity">Activity</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div id="company" class="tab-pane active">
+        <company-form></company-form>
+    </div>
+    <div id="billing" class="tab-pane">
+        <change-billing-form></change-billing-form>
+        <past-invoices-list></past-invoices-list>
+    </div>
+    <div id="users" class="tab-pane">
+        <invite-user-form></invite-user-form>
+        <user-list></user-list>
+    </div>
+    <div id="equipment" class="tab-pane">
+        <p>Manage the machines/equipment for manufacturing??</p>
+    </div>
+    <div id="activity" class="tab-pane">
+        <audit-list></audit-list>
+    </div>
+</div>

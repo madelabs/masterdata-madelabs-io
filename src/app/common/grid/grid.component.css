@@ -1,0 +1,7 @@
+input[type="search"] {
+    width: 300px;
+    background-color: transparent;
+    border-color: #3B3D46;
+    margin-bottom: 5px;
+    color: #fff;
+}

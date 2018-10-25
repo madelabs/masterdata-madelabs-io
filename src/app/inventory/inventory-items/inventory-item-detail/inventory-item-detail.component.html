@@ -1,0 +1,221 @@
+<div *ngIf="model">
+    <p class="actions">
+        <button class="btn btn-default">Edit</button>
+        <button class="btn btn-default" (click)="toggleCreateWorkOrderVisibility(true)">Build</button>
+        <button class="btn btn-default">Buy</button>
+        <button class="btn btn-default">Quote</button>
+        <button class="btn btn-default">Sell</button>
+        <button class="btn btn-default">Print</button>
+        <button class="btn btn-danger">Disable</button>
+    </p>
+
+    <h2>{{ model.name }} <span class="badge">{{ model.status }}</span></h2>
+  
+    <div class="form-group">
+      <label for="code">Code</label>
+      <span id="code" class="form-control">{{ model.code }}</span>
+    </div>
+  
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="height">Height</label>
+                <span id="height" class="form-control">{{ model.height }}</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="length">Length</label>
+                <span id="length" class="form-control">{{ model.length }}</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="width">Width</label>
+                <span id="width" class="form-control">{{ model.width }}</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="weight">Weight</label>
+                <span id="weight" class="form-control">{{ model.weight }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="revision">Revision</label>
+        <span id="revision" class="form-control">{{ model.revision }}</span>
+    </div>
+
+    <div class="form-group">
+        <label for="unitOfMeasure">Default Unit Of Measure</label>
+        <span id="unitOfMeasure" class="form-control">{{ model.unitOfMeasure }}</span>
+    </div>
+    
+    <div class="form-group">
+        <label for="description">Description</label>
+        <span id="description" class="form-control">{{ model.description }}</span>
+    </div>
+
+    <div class="form-group">
+        <label class="checkbox"><input type="checkbox" class="checkbox" [(ngModel)]="model.isForSale" disabled> Is For Sale</label>
+    </div>
+
+    <section *ngIf="model.isForSale">
+        <div class="form-group">
+            <label class="checkbox"><input type="checkbox" class="checkbox" [(ngModel)]="model.allowBackorders" disabled> Allow Backorders</label>
+        </div>
+    </section>
+
+    <div class="form-group">
+        <label class="checkbox"><input type="checkbox" class="checkbox" [(ngModel)]="model.isManufacturable" disabled> Is Manufacturable</label>
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="" data-toggle="tab" data-target="#stats">Stats</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#vendors">Vendors</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#routers">Routers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#boms">Bill Of Materials</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#purchase-orders">Purchase Orders</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="" data-toggle="tab" data-target="#work-orders">Work Orders</a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#pricing">Pricing</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#stock">Stock</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#media">Media</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#categories">Categories</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="" data-toggle="tab" data-target="#catalogs">Catalogs</a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#activity">Activity</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="stats" class="tab-pane active">
+            
+            <label for="ontime">On-Time Delivery:</label>
+            <span class="form-control">95%</span><br>
+
+            <label for="cycletime">Cycle Time:</label>
+            <span class="form-control">13 hours</span><br>
+
+            <label for="changeovertime">Changeover Time:</label>
+            <span class="form-control">3 hours</span><br>
+
+            <label for="yield">Yield:</label>
+            <span class="form-control">98%</span><br>
+
+            <label for="returns">Customer Returns:</label>
+            <span class="form-control">1.5% (13)</span><br>
+
+            <label for="incidents">Safety Incidents:</label>
+            <span class="form-control">3</span><br>
+
+            <label for="cost">Cost per Unit:</label>
+            <span class="form-control">$3.14</span><br>
+        </div>
+        <div id="vendors" class="tab-pane">
+            <p>
+                <button class="btn btn-primary" (click)="toggleCreateVendorVisibility()">Create</button>
+            </p>
+            <vendor-list (onSelected)="onVendorSelected($event)"></vendor-list>
+        </div>
+        <div id="routers" class="tab-pane">
+            <p>
+                <button class="btn btn-primary" (click)="toggleCreateRoutingVisibility()">Create</button>
+            </p>
+            <routing-list (onSelected)="onRoutingSelected($event)"></routing-list>
+        </div>
+        <div id="boms" class="tab-pane">
+            <p class="todo">Todo: list of boms.</p>
+        </div>
+        <div id="purchase-orders" class="tab-pane">
+            <p>
+                <button class="btn btn-primary" (click)="toggleCreatePurchaseOrderVisibility()">Create</button>
+            </p>
+            <purchase-order-list (onSelected)="onPurchaseOrderSelected($event)"></purchase-order-list>
+        </div>
+        <div id="work-orders" class="tab-pane">
+            <p>
+                <button class="btn btn-primary" (click)="toggleCreateWorkOrderVisibility()">Create</button>
+            </p>
+            <work-order-list (onSelected)="onWorkOrderSelected($event)"></work-order-list>
+        </div>
+        <div id="pricing" class="tab-pane">
+            <pricing-matrix></pricing-matrix>
+        </div>
+        <div id="stock" class="tab-pane">
+            <inventory-stock-list (onSelected)="onInventoryStockSelected($event)"></inventory-stock-list>
+        </div>
+        <div id="media" class="tab-pane">
+            <media-list></media-list>
+        </div>
+        <div id="categories" class="tab-pane">
+            <p class="todo">A list of categories.</p>
+        </div>
+        <div id="catalogs" class="tab-pane">
+            <p class="todo">A list of catalogs.</p>
+        </div>
+        <div id="activity" class="tab-pane">
+            <audit-list [list]="model.activity"></audit-list>
+        </div>
+    </div>
+  </div>
+  
+  <side-panel [visible]="isCreatePurchaseOrderVisible" (onToggleVisibility)="toggleCreatePurchaseOrderVisibility($event)">
+    <create-purchase-order-page></create-purchase-order-page>
+  </side-panel>
+
+  <side-panel [visible]="isPurchaseOrderDetailVisible" (onToggleVisibility)="togglePurchaseOrderDetailVisibility($event)">
+    <purchase-order-detail></purchase-order-detail>
+  </side-panel>
+
+  <side-panel [visible]="isCreateRoutingVisible" (onToggleVisibility)="toggleCreateRoutingVisibility($event)">
+    <create-routing-page></create-routing-page>
+  </side-panel>
+
+  <side-panel [visible]="isRoutingDetailVisible" (onToggleVisibility)="toggleRoutingDetailVisibility($event)">
+      <routing-detail-page></routing-detail-page>
+  </side-panel>
+
+  <side-panel [visible]="isCreateVendorVisible" (onToggleVisibility)="toggleCreateVendorVisibility($event)">
+      <create-vendor-page></create-vendor-page>
+  </side-panel>
+
+  <side-panel [visible]="isVendorDetailVisible" (onToggleVisibilty)="toggleVendorDetailVisibility($event)">
+      <vendor-detail></vendor-detail>
+  </side-panel>
+
+  <side-panel [visible]="isCreateWorkOrderVisible" (onToggleVisibility)="toggleCreateWorkOrderVisibility($event)">
+      <create-work-order-page></create-work-order-page>
+  </side-panel>
+
+  <side-panel [visible]="isWorkOrderDetailVisible" (onToggleVisibility)="toggleWorkOrderDetailVisibility($event)">
+      <work-order-detail></work-order-detail>
+  </side-panel>
+
+  <side-panel [visible]="isInventoryStockDetailVisible" (onToggleVisibility)="toggleInventoryStockDetailVisibility($event)">
+      <inventory-stock-detail></inventory-stock-detail>
+  </side-panel>
+  
+  <pre>{{ model | json }}</pre>

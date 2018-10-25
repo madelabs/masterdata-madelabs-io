@@ -1,0 +1,24 @@
+<h1>Manage Items</h1>
+<p>
+    <button type="button" class="btn btn-primary" (click)="toggleCreateVisibility()">Create</button>
+    <button type="button" class="btn btn-default" (click)="toggleImportVisibility(true)">Import</button>
+    <button type="button" class="btn btn-default">Export</button>
+    <button type="button" class="btn btn-default">Print</button>
+</p>
+
+<inventory-item-list (onSelected)="onItemSelected($event)"></inventory-item-list>
+
+<side-panel name="itemCreate" [visible]="isCreateVisible" (onToggleVisibility)="toggleCreateVisibility($event)">
+  <create-inventory-item-page></create-inventory-item-page>
+</side-panel>
+
+<side-panel name="itemDetail" [visible]="isDetailVisible" (onToggleVisibility)="toggleDetailVisibility($event)">
+  <inventory-item-detail [id]="selectedItemId"></inventory-item-detail>
+</side-panel>
+
+<side-panel name="itemImport" [visible]="isImportVisible" (onToggleVisibility)="toggleImportVisibility($event)">
+  <import-items-page></import-items-page>
+</side-panel>
+
+{{ selectedItemId | json }}
+{{ isImportVisible | json }}

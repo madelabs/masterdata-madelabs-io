@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let location of locations">
+    <a (click)="select(location)">{{ location.name }}</a>
+    <inventory-sub-location-list [subLocations]="location.subLocations" (onSelected)="select($event)"></inventory-sub-location-list>
+  </li>
+</ul>

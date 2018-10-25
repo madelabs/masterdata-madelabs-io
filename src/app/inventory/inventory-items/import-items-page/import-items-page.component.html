@@ -1,0 +1,28 @@
+<h1>Import Items</h1>
+<p>If you have not already downloaded our sample import template, please do so here:</p>
+<p><a href="#">Sample Inventory Items Import Template</a></p>
+<p>After filling out the import template, simply upload the file to begin the process, 
+  because we know how important data quality is, we'll assess the import for the following
+  potential issues:
+</p>
+
+<ul>
+  <li>Missing required information</li>
+  <li>Inventory items that appear to be duplicates</li>
+  <li>Data values that do not match the expected field type</li>
+  <li>Data that is too long</li>
+  <li>Data that has relationships that are either expired or do not exist</li>
+</ul>
+
+<form #importItemForm="ngForm" (ngSubmit)="submit()" novalidate>
+  <div class="form-group">
+    <input type="file" id="upload" name="upload" class="form-control" required
+      [(ngModel)]="model.file" #upload="ngModel">
+    <div [hidden]="upload.valid || upload.pristine" class="alert alert-danger">
+      You must upload a file to begin importing
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-default">Cancel</button>
+  <button type="submit" class="btn btn-success">Import</button>
+</form>

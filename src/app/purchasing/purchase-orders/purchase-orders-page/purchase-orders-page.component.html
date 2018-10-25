@@ -1,0 +1,17 @@
+<h1>Purchase Orders</h1>
+<p>
+    <button type="button" (click)="toggleCreateVisibility()" class="btn btn-primary">Create</button>
+    <button type="button" class="btn btn-default">Import</button>
+    <button type="button" class="btn btn-default">Export</button>
+    <button type="button" class="btn btn-default">Print</button>
+</p>
+
+<purchase-order-list (onSelected)="onItemSelected($event)"></purchase-order-list>
+
+<side-panel name="purchaseOrderCreate" [visible]="isCreateVisible" (onToggleVisibility)="toggleCreateVisibility($event)">
+  <create-purchase-order-page></create-purchase-order-page>
+</side-panel>
+
+<side-panel name="purchaseOrderDetail" [visible]="isDetailVisible" (onToggleVisibility)="toggleDetailVisibility($event)">
+  <purchase-order-detail [id]="selectedItemId"></purchase-order-detail>
+</side-panel>
