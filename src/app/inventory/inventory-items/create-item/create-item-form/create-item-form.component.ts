@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { InventoryItemService } from '../../inventory-item.service';
 import { InventoryItem } from '../../inventory-item';
 import { StateService } from '../../../../common/state.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'create-inventory-item-form',
@@ -14,7 +16,11 @@ export class CreateItemFormComponent implements OnInit {
   @Input()
   model: InventoryItem;
 
-  constructor(private service: InventoryItemService, public state: StateService) { }
+  constructor(
+    private router: Router,
+    private toastr: ToastrService,
+    private service: InventoryItemService, 
+    public state: StateService) { }
 
   ngOnInit() {
     if (!this.model) {
@@ -23,7 +29,16 @@ export class CreateItemFormComponent implements OnInit {
   }
 
   submit(): void {
-    this.service.upsert(this.model);
+    // save
+    this.service.upsert(this.model).then(item => {
+      this.model = item;
+
+      // toast
+      this.toastr.success(`${this.model.name} saved!`);
+
+      // route
+      this.router.navigate(['/inventory/items', this.model.id]);
+    });
   }
 
 }

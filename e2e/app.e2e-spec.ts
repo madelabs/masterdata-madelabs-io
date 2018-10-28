@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('caduceus-web App', () => {
+describe('enterprise-madelabs-io App', () => {
   let page: AppPage;
 
   beforeEach(() => {

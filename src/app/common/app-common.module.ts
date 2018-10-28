@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AuditListComponent } from './audit-list/audit-list.component';
 import { CountrySelectListComponent } from './country-select-list/country-select-list.component';
@@ -21,7 +22,14 @@ import { MediaListComponent } from './media-list/media-list.component';
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot({
+        timeOut: 3000,
+        positionClass: 'toast-bottom-right',
+        preventDuplicates: true,
+        closeButton: true
+      }
+    )
   ],
   declarations: [
     NavigationComponent,
@@ -41,7 +49,8 @@ import { MediaListComponent } from './media-list/media-list.component';
     SidePanelComponent,
     CountrySelectListComponent,
     StateSelectListComponent,
-    MediaListComponent
+    MediaListComponent,
+    ToastrModule
   ],
   providers: [
     CountryService,

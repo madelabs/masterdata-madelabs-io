@@ -1,2 +1,2 @@
-# caduceus-web
-The web frontend to something to do with medical.
+# enterprise-madelabs-io
+Master data services for manufacturing.

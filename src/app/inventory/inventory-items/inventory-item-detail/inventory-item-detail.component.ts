@@ -8,6 +8,8 @@ import { PurchaseOrderListItem } from '../../../purchasing/purchase-orders/purch
 import { InventoryItem } from '../inventory-item';
 import { Observable, Subject } from 'rxjs';
 import { StateService } from '../../../common/state.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'inventory-item-detail',
@@ -32,18 +34,30 @@ export class InventoryItemDetailComponent implements OnInit {
   selectedVendorId: number;
   selectedWorkOrderId: number;
 
-  constructor(private service: InventoryItemService, private state: StateService) { }
+  constructor(
+    private router: Router,
+    private service: InventoryItemService, 
+    private state: StateService,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.state.activeInventoryItem.subscribe(item => {
       this.model = item;
     });
-    // this.service.getSingle(this.id).then(data => this.model = data);
   }
 
   delete(): void {
+    // delete
     this.service.delete(this.model);
-    // todo: should set the status to disabled
+    
+    // toast
+    this.toastr.success(`${this.model.name} deleted.`);
+
+    // close detail panel
+    this.state.isInventoryItemDetailVisible.next(false);
+
+    // route to list
+    this.router.navigate(['/inventory/items']);
   }
 
   onInventoryStockSelected(stock: InventoryStockListItem): void {
