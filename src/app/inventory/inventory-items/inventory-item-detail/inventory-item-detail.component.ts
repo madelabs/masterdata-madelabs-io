@@ -1,11 +1,13 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { InventoryItemService } from '../inventory-item.service';
-import { InventoryItemDetail } from './inventory-item-detail';
 import { RoutingListItem } from '../../../manufacturing/routing-list/routing-list-item';
 import { VendorListItem } from '../../../purchasing/vendors/vendor-list/vendor-list-item';
 import { WorkOrderListItem } from '../../../work-orders/work-order-list/work-order-list-item';
 import { InventoryStockListItem } from '../../inventory-stock/inventory-stock-list/inventory-stock-list-item';
 import { PurchaseOrderListItem } from '../../../purchasing/purchase-orders/purchase-order-list/purchase-order-list-item';
+import { InventoryItem } from '../inventory-item';
+import { Observable, Subject } from 'rxjs';
+import { StateService } from '../../../common/state.service';
 
 @Component({
   selector: 'inventory-item-detail',
@@ -13,8 +15,8 @@ import { PurchaseOrderListItem } from '../../../purchasing/purchase-orders/purch
   styleUrls: ['./inventory-item-detail.component.css']
 })
 export class InventoryItemDetailComponent implements OnInit {
-  @Input() id: number;
-  model: InventoryItemDetail = null;
+  @Input() id: string;
+  model: InventoryItem = null;
   isCreateRoutingVisible: boolean = false;
   isCreateVendorVisible: boolean = false;
   isCreateWorkOrderVisible: boolean = false;
@@ -30,10 +32,18 @@ export class InventoryItemDetailComponent implements OnInit {
   selectedVendorId: number;
   selectedWorkOrderId: number;
 
-  constructor(private service: InventoryItemService) { }
+  constructor(private service: InventoryItemService, private state: StateService) { }
 
   ngOnInit() {
-    this.service.getSingle(this.id).then(data => this.model = data);
+    this.state.activeInventoryItem.subscribe(item => {
+      this.model = item;
+    });
+    // this.service.getSingle(this.id).then(data => this.model = data);
+  }
+
+  delete(): void {
+    this.service.delete(this.model);
+    // todo: should set the status to disabled
   }
 
   onInventoryStockSelected(stock: InventoryStockListItem): void {

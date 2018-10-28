@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { GridColumn } from './grid-column';
 
 @Component({
   selector: 'grid',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class GridComponent implements OnInit {
   @Output() onSelected = new EventEmitter<any>();
-  @Input() columns: any;
+  @Input() columns: GridColumn[];
   @Input() includeCheckboxes: boolean = true;
   @Input() includeSearch: boolean = true;
   @Input() items: any;

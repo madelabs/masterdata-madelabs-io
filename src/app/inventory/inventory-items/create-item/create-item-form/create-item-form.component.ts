@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { CreateInventoryItem } from './create-inventory-item';
 import { InventoryItemService } from '../../inventory-item.service';
+import { InventoryItem } from '../../inventory-item';
+import { StateService } from '../../../../common/state.service';
 
 @Component({
   selector: 'create-inventory-item-form',
@@ -11,18 +12,18 @@ import { InventoryItemService } from '../../inventory-item.service';
 export class CreateItemFormComponent implements OnInit {
 
   @Input()
-  model: CreateInventoryItem;
+  model: InventoryItem;
 
-  constructor(private service: InventoryItemService) { }
+  constructor(private service: InventoryItemService, public state: StateService) { }
 
   ngOnInit() {
     if (!this.model) {
-      this.model = new CreateInventoryItem()
+      this.model = new InventoryItem()
     }
   }
 
   submit(): void {
-    // todo
+    this.service.upsert(this.model);
   }
 
 }

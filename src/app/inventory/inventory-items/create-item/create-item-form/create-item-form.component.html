@@ -55,7 +55,7 @@
         <unit-of-measure-select-list name="unitOfMeasureId" [(ngModel)]="model.unitOfMeasureId"></unit-of-measure-select-list>
     </div>
 
-    <button type="button" class="btn btn-default">Cancel</button>
+    <button type="button" class="btn btn-default" (click)="state.isInventoryItemCreateVisible.next(false)">Cancel</button>
     <button type="submit" class="btn btn-success">Save</button>
   </form>
   

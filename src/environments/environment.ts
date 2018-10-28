@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api: 'https://dev-api.madelabs.io' 
+  api: 'https://localhost:5000' 
 };

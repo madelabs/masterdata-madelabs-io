@@ -1,3 +1,5 @@
+// Note: for simplicity, i've stopped using this model and just use a general
+// InventoryItem class until it's proven I need to restrict fields.
 export class CreateInventoryItem {
     public code: string; 
     public description: string;

@@ -1,7 +1,7 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NgModel, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { StateService } from '../state.service';
+import { UsStateService } from './us-state.service';
 import { SelectListItem } from '../select-list/select-list-item';
 
 @Component({
@@ -21,7 +21,7 @@ export class StateSelectListComponent implements ControlValueAccessor, OnInit {
 
   list: SelectListItem[];
 
-  constructor(private service: StateService) { }
+  constructor(private service: UsStateService) { }
 
   ngOnInit() {
     this.service.getSelectListCollection(this.countryId).then(data => this.list = data);

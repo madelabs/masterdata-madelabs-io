@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-import { InventoryItemListItem } from './inventory-item-list-item';
 import { InventoryItemService } from '../inventory-item.service'
+import { InventoryItem } from '../inventory-item';
+import { GridColumn } from '../../../common/grid/grid-column';
 
 @Component({
   selector: 'inventory-item-list',
@@ -9,18 +10,25 @@ import { InventoryItemService } from '../inventory-item.service'
   styleUrls: ['./inventory-item-list.component.css']
 })
 export class InventoryItemListComponent implements OnInit {
-  @Output() onSelected = new EventEmitter<InventoryItemListItem>();
+  @Output() onSelected = new EventEmitter<InventoryItem>();
 
-  items: InventoryItemListItem[];
+  columns: GridColumn[];
+  items: InventoryItem[];
 
   constructor(private service: InventoryItemService) { }
 
   ngOnInit() {
+    this.columns = [
+      new GridColumn('Item', 'name'),
+      new GridColumn('Code', 'code'),
+      new GridColumn('Status', 'status')
+    ];
+
     var filter = null;
     this.service.getCollection(filter).then(response => this.items = response);
   }
 
-  select(item: InventoryItemListItem): void {
+  select(item: InventoryItem): void {
     this.onSelected.emit(item);
   }
 }

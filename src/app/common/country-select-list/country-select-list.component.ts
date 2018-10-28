@@ -2,7 +2,7 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NgModel, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { SelectListItem } from '../select-list/select-list-item';
-import { CountryService } from '../country.service';
+import { CountryService } from './country.service';
 
 @Component({
   selector: 'country-select-list',

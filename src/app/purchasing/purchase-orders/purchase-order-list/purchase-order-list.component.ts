@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PurchaseOrderListItem } from './purchase-order-list-item';
+import { GridColumn } from '../../../common/grid/grid-column';
 
 @Component({
   selector: 'purchase-order-list',
@@ -9,7 +10,7 @@ import { PurchaseOrderListItem } from './purchase-order-list-item';
 export class PurchaseOrderListComponent implements OnInit {
   @Output() onSelected = new EventEmitter<PurchaseOrderListItem>();
   
-  columns: any;
+  columns: GridColumn[];
   items: PurchaseOrderListItem[];
 
   constructor() { }
@@ -17,14 +18,8 @@ export class PurchaseOrderListComponent implements OnInit {
   ngOnInit() {
     // todo: change out fake data
     this.columns = [
-      {
-        name: 'Number', 
-        binding: 'number'
-      },
-      {
-        name: 'Status',
-        binding: 'status'
-      }
+      new GridColumn('Number', 'number'),
+      new GridColumn('Status', 'status')
     ];
 
     this.items = new Array<PurchaseOrderListItem>();

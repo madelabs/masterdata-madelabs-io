@@ -1,3 +1,5 @@
+{{ id }}
+
 <div *ngIf="model">
     <p class="actions">
         <button class="btn btn-default" (click)="toggleEditItemVisibility(true)">Edit</button>
@@ -6,7 +8,7 @@
         <!--<button class="btn btn-default">Quote</button>-->
         <!--<button class="btn btn-default">Sell</button>-->
         <button class="btn btn-default">Print</button>
-        <button class="btn btn-danger">Disable</button>
+        <button class="btn btn-danger" (click)="delete(model)">Disable</button>
     </p>
 
     <h2>{{ model.name }} <span class="badge">{{ model.status }}</span></h2>

@@ -6,11 +6,11 @@ import { RouterModule } from '@angular/router';
 
 import { AuditListComponent } from './audit-list/audit-list.component';
 import { CountrySelectListComponent } from './country-select-list/country-select-list.component';
-import { CountryService } from './country.service';
+import { CountryService } from './country-select-list/country.service';
 import { NavigationComponent } from './navigation/navigation.component'
 import { SelectListComponent } from './select-list/select-list.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
-import { StateService } from './state.service';
+import { UsStateService } from './state-select-list/us-state.service';
 
 import { StateSelectListComponent } from './state-select-list/state-select-list.component';
 import { GridComponent } from './grid/grid.component';
@@ -45,7 +45,7 @@ import { MediaListComponent } from './media-list/media-list.component';
   ],
   providers: [
     CountryService,
-    StateService
+    UsStateService
   ]
 })
 export class AppCommonModule { }

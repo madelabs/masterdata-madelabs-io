@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '../../../common/state.service';
 
 @Component({
   selector: 'import-items-page',
@@ -9,7 +10,7 @@ export class ImportItemsPageComponent implements OnInit {
 
   model: any = {};
 
-  constructor() { }
+  constructor(public state: StateService) { }
 
   ngOnInit() {
   }

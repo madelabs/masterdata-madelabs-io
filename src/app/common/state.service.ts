@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { InventoryItem } from '../inventory/inventory-items/inventory-item';
+import { Observable, Subject } from 'rxjs';
 
-import { SelectListItem } from '../common/select-list/select-list-item';
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class StateService {
-  constructor(private http: Http) { }
 
-  getSelectListCollection(countryId: number): Promise<SelectListItem[]> {
-    // todo: replace fake
-    var fakeData: SelectListItem[] = [
-      new SelectListItem(1, 'Florida'),
-      new SelectListItem(2, 'Illinois'),
-      new SelectListItem(3, 'Alabama'),
-    ];
+  constructor() { }
 
-    return Promise.resolve(fakeData);
-  }
+  public activeInventoryItem = new Subject<InventoryItem>();
+
+  public isInventoryItemCreateVisible = new Subject<boolean>();
+  public isInventoryItemDetailVisible = new Subject<boolean>();
+  public isInventoryItemImportVisible = new Subject<boolean>();
 }

@@ -14,6 +14,9 @@ export class CreateInventoryItemPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.item) {
+      this.item = new InventoryItem();
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { SelectListItem } from '../common/select-list/select-list-item';
+import { SelectListItem } from '../select-list/select-list-item';
 
 @Injectable()
 export class CountryService {

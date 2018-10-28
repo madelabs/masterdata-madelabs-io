@@ -1,3 +1,6 @@
+// Note: for simplicity, i've stopped using this model and just use a general
+// InventoryItem class until it's proven I need to restrict fields.
+
 import { AuditEntryListItem } from '../../../common/audit-list/audit-entry-list-item';
 
 export class InventoryItemDetail {

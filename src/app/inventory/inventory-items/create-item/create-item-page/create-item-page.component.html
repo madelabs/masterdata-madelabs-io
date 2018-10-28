@@ -1,2 +1,3 @@
-<h1>Create a New Item</h1>
+<h1 *ngIf="!item.id">Create a New Item</h1>
+<h1 *ngIf="item.id">Edit {{item.name}}</h1>
 <create-inventory-item-form [model]="item"></create-inventory-item-form>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryItemListItem } from '../inventory-item-list/inventory-item-list-item';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+import { StateService } from '../../../common/state.service';
+import { InventoryItem } from '../inventory-item';
 
 @Component({
   selector: 'inventory-items-page',
@@ -12,28 +15,21 @@ export class InventoryItemsPageComponent implements OnInit {
   isCreateVisible: boolean = false;
   isDetailVisible: boolean = false;
   isImportVisible: boolean = false;
-  selectedItemId: number;
+  selectedItemId: string;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private state: StateService) { }
 
   ngOnInit() {
     this.setupPageByUrl();
+    this.setupPageComponents();
   }
 
-  onItemSelected(item: InventoryItemListItem): void {
+  onItemSelected(item: InventoryItem): void {
+    this.state.activeInventoryItem.next(item);
     this.router.navigate(['/inventory/items', item.id]);
-  }
-  
-  toggleCreateVisibility(): void {
-    this.isCreateVisible = !this.isCreateVisible;
-  }
-
-  toggleDetailVisibility(visible: boolean): void {
-    this.isDetailVisible = visible;
-  }
-
-  toggleImportVisibility(): void {
-    this.isImportVisible = !this.isImportVisible;
   }
 
   private setupPageByUrl(): void {
@@ -60,5 +56,19 @@ export class InventoryItemsPageComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  private setupPageComponents(): void {
+    this.state.isInventoryItemCreateVisible.subscribe(isVisible => {
+      this.isCreateVisible = isVisible;
+    });
+
+    this.state.isInventoryItemDetailVisible.subscribe(isVisible => {
+      this.isDetailVisible = isVisible;
+    });
+
+    this.state.isInventoryItemImportVisible.subscribe(isVisible => {
+      this.isImportVisible = isVisible;
+    });
   }
 }
