@@ -12,6 +12,7 @@ import { InventoryItemListModule } from './inventory-item-list/inventory-item-li
 import { ImportItemsPageComponent } from './import-items-page/import-items-page.component';
 import { UnitOfMeasureModule } from './unit-of-measure/unit-of-measure.module';
 import { AuthGuard } from '../../auth/auth-guard.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'inventory', component: InventoryItemsPageComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     AppCommonModule,
     CommonModule,
     FormsModule,
+    HttpClientModule,
     CreateItemModule,
     InventoryItemDetailModule,
     InventoryItemListModule,

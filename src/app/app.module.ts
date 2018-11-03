@@ -21,6 +21,8 @@ import { DashboardPageComponent } from './dashboard/dashboard-page/dashboard-pag
 import { MyWorkPageComponent } from './dashboard/my-work-page/my-work-page.component';
 import { NotFoundPageComponent } from './common/not-found-page/not-found-page.component';
 import { AuthGuard } from './auth/auth-guard.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },

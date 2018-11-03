@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { environment } from '../../environments/environment';
 import { Tenant } from './tenant';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +10,19 @@ import { Tenant } from './tenant';
 export class TenantService {
   private apiUrl = environment.api + '/tenants';
   
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getSingle(): Promise<Tenant> {
-    return this.http.get(`${this.apiUrl}/mine`)
+    return this.http.get(`${this.apiUrl}`)
       .toPromise()
-      .then(response => response.json() as Tenant)
+      .then(response => response as Tenant)
       .catch(this.handleError);
   }
 
   update(tenant: Tenant): Promise<Tenant> {
-    return this.http.put(`${this.apiUrl}/mine`, tenant)
+    return this.http.put(`${this.apiUrl}`, tenant)
       .toPromise()
-      .then(response => response.json() as Tenant)
+      .then(response => response as Tenant)
       .catch(this.handleError);
   }
 

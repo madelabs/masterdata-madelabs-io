@@ -5,6 +5,7 @@ import { CallbackPageComponent } from './callback-page/callback-page.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { AuthInterceptorService } from './auth-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackPageComponent }
@@ -21,7 +22,10 @@ const appRoutes: Routes = [
   providers: [
     AuthService,
     AuthGuard,
-    AuthInterceptorService
+    AuthInterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true 
+    }
   ]
 })
 export class AuthModule { }

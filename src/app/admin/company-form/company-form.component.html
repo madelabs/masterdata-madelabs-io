@@ -1,4 +1,4 @@
-<form (submit)="submit()">
+<form (submit)="submit()" *ngIf="tenant">
   <label for="name">Company Name</label>
   <input type="text" id="name" name="name" class="form-control" [(ngModel)]="tenant.name">
 

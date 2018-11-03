@@ -58,7 +58,6 @@ export class AuthService {
   }
 
   login(id_token: string, access_token: string, expires_in: number, token_type: string): void {
-    
     // set expiration
     var expires = new Date();
     expires.setDate(expires.getSeconds() + expires_in);

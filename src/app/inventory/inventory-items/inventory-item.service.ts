@@ -4,24 +4,25 @@ import { Http } from '@angular/http';
 import { SelectListItem } from '../../common/select-list/select-list-item';
 import { InventoryItem } from './inventory-item';
 import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class InventoryItemService {
   private apiUrl = environment.api + '/products';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   create(item: InventoryItem): Promise<InventoryItem> {
     return this.http.post(this.apiUrl, item)
       .toPromise()
-      .then(response => response.json() as InventoryItem)
+      .then(response => response as InventoryItem)
       .catch(this.handleError);
   }
 
   delete(item: InventoryItem): Promise<InventoryItem> {
     return this.http.delete(`${this.apiUrl}/${item.id}`)
       .toPromise()
-      .then(response => response.json() as InventoryItem)
+      .then(response => response as InventoryItem)
       .catch(this.handleError);
   }
 
@@ -30,7 +31,7 @@ export class InventoryItemService {
     
     return this.http.get(this.apiUrl)
       .toPromise()
-      .then(response => response.json() as InventoryItem[])
+      .then(response => response as InventoryItem[])
       .catch(this.handleError);
   }
 
@@ -48,7 +49,7 @@ export class InventoryItemService {
   getSingle(id: string): Promise<InventoryItem> {
     return this.http.get(`${this.apiUrl}/${id}`)
       .toPromise()
-      .then(response => response.json() as InventoryItem)
+      .then(response => response as InventoryItem)
       .catch(this.handleError);
 
     // var fakeItem = new InventoryItemDetail(
@@ -68,7 +69,7 @@ export class InventoryItemService {
   update(item: InventoryItem): Promise<InventoryItem> {
     return this.http.put(`${this.apiUrl}/${item.id}`, item)
       .toPromise()
-      .then(response => response.json() as InventoryItem)
+      .then(response => response as InventoryItem)
       .catch(this.handleError);
   }
 

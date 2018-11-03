@@ -17,7 +17,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./inventory-item-detail.component.css']
 })
 export class InventoryItemDetailComponent implements OnInit {
-  @Input() id: string;
   model: InventoryItem = null;
   isCreateRoutingVisible: boolean = false;
   isCreateVendorVisible: boolean = false;
@@ -42,7 +41,6 @@ export class InventoryItemDetailComponent implements OnInit {
 
   ngOnInit() {
     this.state.activeInventoryItem.subscribe(item => {
-      console.log('model', this.model);
       this.model = item;
     });
 

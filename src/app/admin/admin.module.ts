@@ -13,6 +13,7 @@ import { ChangeBillingFormComponent } from './change-billing-form/change-billing
 import { PastInvoicesListComponent } from './past-invoices-list/past-invoices-list.component';
 import { InviteUserFormComponent } from './invite-user-form/invite-user-form.component';
 import { UserService } from './user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'settings', component: SettingsPageComponent }
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   imports: [
     AppCommonModule,
     CommonModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
