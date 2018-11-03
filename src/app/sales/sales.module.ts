@@ -7,12 +7,13 @@ import { SalesOrderListComponent } from './sales-orders/sales-order-list/sales-o
 import { CreateSalesOrderPageComponent } from './sales-orders/create-sales-order-page/create-sales-order-page.component';
 import { SalesOrderDetailComponent } from './sales-orders/sales-order-detail/sales-order-detail.component';
 import { CustomersPageComponent } from './customers/customers-page/customers-page.component';
+import { AuthGuard } from '../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'sales/customers', component: CustomersPageComponent },
-  { path: 'sales/customers/:id', component: CustomersPageComponent },
-  { path: 'sales/sales-orders', component: SalesOrdersPageComponent },
-  { path: 'sales/sales-orders/:id', component: SalesOrdersPageComponent }
+  { path: 'sales/customers', component: CustomersPageComponent, canActivate: [AuthGuard] },
+  { path: 'sales/customers/:id', component: CustomersPageComponent, canActivate: [AuthGuard] },
+  { path: 'sales/sales-orders', component: SalesOrdersPageComponent, canActivate: [AuthGuard] },
+  { path: 'sales/sales-orders/:id', component: SalesOrdersPageComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

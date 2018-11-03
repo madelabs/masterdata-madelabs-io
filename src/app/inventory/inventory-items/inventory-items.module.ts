@@ -15,11 +15,11 @@ import { AuthGuard } from '../../auth/auth-guard.service';
 import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
-  { path: 'inventory', component: InventoryItemsPageComponent },
+  { path: 'inventory', component: InventoryItemsPageComponent, canActivate: [AuthGuard] },
   { path: 'inventory/items', component: InventoryItemsPageComponent, canActivate: [AuthGuard] },
-  { path: 'inventory/items/create', component: InventoryItemsPageComponent },
-  { path: 'inventory/items/import', component: InventoryItemsPageComponent },
-  { path: 'inventory/items/:id', component: InventoryItemsPageComponent },
+  { path: 'inventory/items/create', component: InventoryItemsPageComponent, canActivate: [AuthGuard] },
+  { path: 'inventory/items/import', component: InventoryItemsPageComponent, canActivate: [AuthGuard] },
+  { path: 'inventory/items/:id', component: InventoryItemsPageComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

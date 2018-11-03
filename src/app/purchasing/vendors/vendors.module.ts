@@ -11,10 +11,11 @@ import { CreatePurchaseOrderPageModule } from '../purchase-orders/create-purchas
 import { PurchaseOrderDetailModule } from '../purchase-orders/purchase-order-detail/purchase-order-detail.module';
 import { VendorDetailModule } from './vendor-detail/vendor-detail.module';
 import { CreateVendorPageModule } from './create-vendor-page/create-vendor-page.module';
+import { AuthGuard } from '../../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'purchasing/vendors', component: VendorsPageComponent },
-  { path: 'purchasing/vendors/:id', component: VendorsPageComponent },
+  { path: 'purchasing/vendors', component: VendorsPageComponent, canActivate: [AuthGuard] },
+  { path: 'purchasing/vendors/:id', component: VendorsPageComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

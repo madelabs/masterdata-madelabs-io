@@ -9,9 +9,10 @@ import { InventoryLocationDetailComponent } from './inventory-location-detail/in
 import { InventoryLocationListComponent } from './inventory-location-list/inventory-location-list.component';
 import { AppCommonModule } from '../../common/app-common.module';
 import { InventoryLocationService } from './inventory-location.service';
+import { AuthGuard } from '../../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'inventory/locations', component: InventoryLocationsPageComponent }
+  { path: 'inventory/locations', component: InventoryLocationsPageComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

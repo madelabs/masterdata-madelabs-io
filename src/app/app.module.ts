@@ -25,8 +25,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 const appRoutes: Routes = [
-  { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },
-  { path: 'my-work', component: MyWorkPageComponent },
+  { path: '', component: DashboardPageComponent, canActivate: [AuthGuard] },
+  { path: 'my-work', component: MyWorkPageComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundPageComponent }
 ];
 

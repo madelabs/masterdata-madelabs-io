@@ -14,9 +14,10 @@ import { PastInvoicesListComponent } from './past-invoices-list/past-invoices-li
 import { InviteUserFormComponent } from './invite-user-form/invite-user-form.component';
 import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from '../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'settings', component: SettingsPageComponent }
+  { path: 'settings', component: SettingsPageComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

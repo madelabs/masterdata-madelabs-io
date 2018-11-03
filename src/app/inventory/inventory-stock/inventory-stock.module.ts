@@ -6,9 +6,10 @@ import { InventoryStockDetailComponent } from './inventory-stock-detail/inventor
 import { InventoryStockListComponent } from './inventory-stock-list/inventory-stock-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppCommonModule } from '../../common/app-common.module';
+import { AuthGuard } from '../../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'inventory/stock', component: StockPageComponent },
+  { path: 'inventory/stock', component: StockPageComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

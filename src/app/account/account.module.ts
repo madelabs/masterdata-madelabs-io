@@ -12,11 +12,12 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { AccountService } from './account.service';
 import { ForgotPasswordPageComponent } from './forgot-password-page/forgot-password-page.component';
+import { AuthGuard } from '../auth/auth-guard.service';
 
 const appRoutes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordPageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'profile', component: ProfilePageComponent },
+  { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: RegistrationPageComponent }
 ];
 

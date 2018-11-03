@@ -6,10 +6,11 @@ import { AppCommonModule } from '../../common/app-common.module';
 import { PurchaseOrderListModule } from './purchase-order-list/purchase-order-list.module';
 import { CreatePurchaseOrderPageModule } from './create-purchase-order-page/create-purchase-order-page.module';
 import { PurchaseOrderDetailModule } from './purchase-order-detail/purchase-order-detail.module';
+import { AuthGuard } from '../../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'purchasing/purchase-orders', component: PurchaseOrdersPageComponent },
-  { path: 'purchasing/purchase-orders/:id', component: PurchaseOrdersPageComponent },
+  { path: 'purchasing/purchase-orders', component: PurchaseOrdersPageComponent, canActivate: [AuthGuard] },
+  { path: 'purchasing/purchase-orders/:id', component: PurchaseOrdersPageComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

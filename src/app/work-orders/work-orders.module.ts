@@ -10,10 +10,11 @@ import { WorkOrderListModule } from './work-order-list/work-order-list.module';
 import { CreateWorkOrderPageModule } from './create-work-order-page/create-work-order-page.module';
 // import { FullCalendarModule } from 'ng-fullcalendar';  // failing due to jQuery/types issue
 import { AppCommonModule } from '../common/app-common.module';
+import { AuthGuard } from '../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'work-orders', component: WorkOrdersPageComponent },
-  { path: 'work-orders/calendar', component: WorkOrdersCalendarPageComponent }
+  { path: 'work-orders', component: WorkOrdersPageComponent, canActivate: [AuthGuard] },
+  { path: 'work-orders/calendar', component: WorkOrdersCalendarPageComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

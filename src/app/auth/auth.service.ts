@@ -40,6 +40,7 @@ export class AuthService {
     }
 
     var expires = this.getTokenExpiration();
+    console.log(expires, new Date(), expires > new Date());
     if (expires > new Date()) {
       return true;
     }
@@ -60,8 +61,8 @@ export class AuthService {
   login(id_token: string, access_token: string, expires_in: number, token_type: string): void {
     // set expiration
     var expires = new Date();
-    expires.setDate(expires.getSeconds() + expires_in);
-
+    expires.setSeconds(expires.getSeconds() + expires_in);
+    
     // store tokens
     localStorage.setItem('auth_id_token', JSON.stringify(id_token));
     localStorage.setItem('auth_access_token', JSON.stringify(access_token));
