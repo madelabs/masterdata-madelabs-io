@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { StateService } from '../../../common/state.service';
 import { InventoryItem } from '../inventory-item';
+import { InventoryItemService } from '../inventory-item.service';
 
 @Component({
   selector: 'inventory-items-page',
@@ -15,9 +16,9 @@ export class InventoryItemsPageComponent implements OnInit {
   isCreateVisible: boolean = false;
   isDetailVisible: boolean = false;
   isImportVisible: boolean = false;
-  selectedItemId: string;
 
   constructor(
+    private inventoryItemService: InventoryItemService,
     private route: ActivatedRoute,
     private router: Router,
     private state: StateService) { }
@@ -37,8 +38,11 @@ export class InventoryItemsPageComponent implements OnInit {
       
       // Check for selected item to display details
       if (params.id) {  
-        this.selectedItemId = params.id;
-        this.isDetailVisible = true;
+        this.inventoryItemService.getSingle(params.id)
+          .then(item => {
+            this.state.activeInventoryItem.next(item);
+            this.state.isInventoryItemDetailVisible.next(true);
+          });
       }
     });
 
@@ -46,11 +50,11 @@ export class InventoryItemsPageComponent implements OnInit {
     switch(action) {
       // Check if creating new item
       case 'create':
-        this.isCreateVisible = true;
+        this.state.isInventoryItemCreateVisible.next(true);
         break;
       // Check if importing items
       case 'import':
-        this.isImportVisible = true;
+        this.state.isInventoryItemImportVisible.next(true);
         break;
       // Nothing
       default:

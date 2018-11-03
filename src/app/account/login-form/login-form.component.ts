@@ -25,6 +25,6 @@ export class LoginFormComponent implements OnInit {
 
     login(): void {
         this.submitted = true;
-        this.accountService.login(this.model);
+        // this.accountService.login(this.model);
     }
 }

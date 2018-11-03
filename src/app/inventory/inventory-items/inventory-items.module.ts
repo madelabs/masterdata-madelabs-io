@@ -11,10 +11,11 @@ import { InventoryItemDetailModule } from './inventory-item-detail/inventory-ite
 import { InventoryItemListModule } from './inventory-item-list/inventory-item-list.module';
 import { ImportItemsPageComponent } from './import-items-page/import-items-page.component';
 import { UnitOfMeasureModule } from './unit-of-measure/unit-of-measure.module';
+import { AuthGuard } from '../../auth/auth-guard.service';
 
 const appRoutes: Routes = [
   { path: 'inventory', component: InventoryItemsPageComponent },
-  { path: 'inventory/items', component: InventoryItemsPageComponent },
+  { path: 'inventory/items', component: InventoryItemsPageComponent, canActivate: [AuthGuard] },
   { path: 'inventory/items/create', component: InventoryItemsPageComponent },
   { path: 'inventory/items/import', component: InventoryItemsPageComponent },
   { path: 'inventory/items/:id', component: InventoryItemsPageComponent },

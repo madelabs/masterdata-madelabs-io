@@ -42,7 +42,12 @@ export class InventoryItemDetailComponent implements OnInit {
 
   ngOnInit() {
     this.state.activeInventoryItem.subscribe(item => {
+      console.log('model', this.model);
       this.model = item;
+    });
+
+    this.state.isInventoryItemEditVisible.subscribe(isVisible => {
+      this.isEditItemVisible = isVisible;
     });
   }
 

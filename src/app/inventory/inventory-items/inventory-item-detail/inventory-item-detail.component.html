@@ -1,5 +1,3 @@
-{{ id }}
-
 <div *ngIf="model">
     <p class="actions">
         <button class="btn btn-default" (click)="toggleEditItemVisibility(true)">Edit</button>
@@ -220,7 +218,7 @@
       <inventory-stock-detail></inventory-stock-detail>
   </side-panel>
   
-  <side-panel [visible]="isEditItemVisible" (onToggleVisibility)="toggleEditItemVisibility($event)">
+  <side-panel [visible]="isEditItemVisible" (onToggleVisibility)="state.isInventoryItemEditVisible.next($event)">
     <create-inventory-item-page [item]="model"></create-inventory-item-page>
   </side-panel>
   

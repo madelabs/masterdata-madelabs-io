@@ -16,9 +16,11 @@ import { UsStateService } from './state-select-list/us-state.service';
 import { StateSelectListComponent } from './state-select-list/state-select-list.component';
 import { GridComponent } from './grid/grid.component';
 import { MediaListComponent } from './media-list/media-list.component';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   imports: [
+    AuthModule,
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,

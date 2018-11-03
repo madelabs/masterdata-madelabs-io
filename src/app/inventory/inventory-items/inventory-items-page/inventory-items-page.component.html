@@ -1,9 +1,9 @@
 <h1>Manage Items</h1>
 <p>
     <button type="button" class="btn btn-primary" (click)="state.isInventoryItemCreateVisible.next(true)">Create</button>
-    <button type="button" class="btn btn-default" (click)="state.isInventoryItemImportVisible.next(true)">Import</button>
-    <button type="button" class="btn btn-default">Export</button>
-    <button type="button" class="btn btn-default">Print</button>
+    <!--<button type="button" class="btn btn-default" (click)="state.isInventoryItemImportVisible.next(true)">Import</button>-->
+    <!--<button type="button" class="btn btn-default">Export</button>
+    <button type="button" class="btn btn-default">Print</button>-->
 </p>
 
 <inventory-item-list (onSelected)="onItemSelected($event)"></inventory-item-list>

@@ -1,6 +1,12 @@
-<form>
+<form (submit)="submit()">
   <label for="name">Company Name</label>
-  <input type="text" id="name" name="name" class="form-control">
+  <input type="text" id="name" name="name" class="form-control" [(ngModel)]="tenant.name">
+
+  <label for="address">Address</label>
+  <input type="text" id="address" name="address" class="form-control" [(ngModel)]="tenant.address">
+
+  <label for="phone">Phone Number</label>
+  <input type="text" id="phone" name="phone" class="form-control" [(ngModel)]="tenant.phone">
 
   <button type="submit" class="btn btn-success">Save</button>
 </form>

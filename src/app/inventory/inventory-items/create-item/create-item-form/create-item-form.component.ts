@@ -28,6 +28,15 @@ export class CreateItemFormComponent implements OnInit {
     }
   }
 
+  cancel(): void {
+    if (this.model.id) {
+      this.state.isInventoryItemEditVisible.next(false)
+    }
+    else {
+      this.state.isInventoryItemCreateVisible.next(false)
+    }
+  }
+
   submit(): void {
     // save
     this.service.upsert(this.model).then(item => {
