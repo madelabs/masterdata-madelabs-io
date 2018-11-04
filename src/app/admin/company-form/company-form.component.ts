@@ -24,9 +24,7 @@ export class CompanyFormComponent implements OnInit {
 
   submit(): void {
     this.tenantService.update(this.tenant).then(tenant => {
-      // update model in case it was altered
-      this.tenant = tenant;
-
+      
       // toast that the change was successful
       this.toastr.success('Account has been updated');
     });

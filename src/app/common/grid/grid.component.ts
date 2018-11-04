@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GridColumn } from './grid-column';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'grid',
@@ -15,6 +16,7 @@ export class GridComponent implements OnInit {
 
   private availableCount: number;
   private colspan: number;
+  private checkAll: boolean;
   
   constructor() { }
 
@@ -29,6 +31,12 @@ export class GridComponent implements OnInit {
     if (this.includeCheckboxes) {
       this.colspan++;
     }
+  }
+
+  checkAllToggle(): void {
+    this.items.forEach(item => {
+      item.checked = this.checkAll;
+    });
   }
 
   search(): void {

@@ -50,6 +50,16 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 
-    <a routerLink="/profile"><img src="assets/profile-sm.jpg" class="profile rounded-circle" alt="Profile"></a>
+    <div class="dropdown">
+      <button class="btn btn-link dropdown-toggle" type="button" id="accountMenu" data-toggle="dropdown">
+        <img src="assets/profile-sm.jpg" class="profile rounded-circle" alt="Profile">
+      </button>
+
+      <ul class="dropdown-menu" role="menu" aria-labelledby="accountMenu">
+        <li role="presentation"><a role="menuitem" tabindex="-1" routerLink="profile" class="dropdown-item">My Profile</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" (click)="logout()" class="dropdown-item" href="javascript:void(0)">Sign out</a></li>
+      </ul>
+    </div>
+    
   </div>
 </nav>
