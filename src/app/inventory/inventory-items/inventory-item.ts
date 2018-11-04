@@ -14,6 +14,8 @@ export class InventoryItem {
         public weight: number = null,
         public width: number = null,
         public activity: AuditEntryListItem[] = null,
-        public isForSale: boolean = true) {
+        public isForSale: boolean = true,
+        public isManufacturable: boolean = true,
+        public allowBackorders: boolean = false) {
     }
 }
