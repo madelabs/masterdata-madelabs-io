@@ -29,9 +29,15 @@ li.active > .nav-link {
     border-bottom: 2px solid orange;
 }
 
-.profile {
+.profile img {
     width: 50px;
     margin-right: 15px;
+}
+.profile .btn {
+    padding: 0px;
+}
+.profile .btn::after {
+    display: none;
 }
 
 .version {

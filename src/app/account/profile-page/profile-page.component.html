@@ -4,7 +4,7 @@
           <h1>Nicholas Barger</h1>
           <p class="title">President</p>
           <p>Chicago, IL</p>
-          <p><a href="mailto:nicholas@nicholasbarger.com">nicholas@nicholasbarger.com</a></p>
+          <p>nick.barger@madelabs.io</p>
           <p><span class="oi oi-media-record" style="color: green;"></span> Online</p>
 
           <label for="created">User Since:</label>
@@ -26,7 +26,7 @@
           </table>
       </div>
       <div class="col-md-4 text-center">
-          <img src="assets/profile-sm.jpg" alt="Nicholas Barger" class="profile rounded">
+          <img [src]="profileImage" alt="Nicholas Barger" class="profile rounded">
           <button type="button" class="btn btn-link">Upload new picture</button>
           <button type="button" class="btn btn-link" (click)="logout()">Logout</button>
       </div>

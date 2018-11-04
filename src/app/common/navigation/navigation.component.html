@@ -42,7 +42,6 @@
         </ul>
       </li>-->
       <li class="nav-item" routerLinkActive="active"><a routerLink="/inventory/items" class="nav-link">Items</a></li>
-      <li class="nav-item" routerLinkActive="active"><a routerLink="/settings" class="nav-link">Settings</a></li>
     </ul>
 
     <form class="form-inline my-2 my-lg-0">
@@ -50,13 +49,14 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 
-    <div class="dropdown">
+    <div class="profile dropdown">
       <button class="btn btn-link dropdown-toggle" type="button" id="accountMenu" data-toggle="dropdown">
-        <img src="assets/profile-sm.jpg" class="profile rounded-circle" alt="Profile">
+        <img [src]="profileImage" class="rounded-circle" alt="Profile">
       </button>
 
-      <ul class="dropdown-menu" role="menu" aria-labelledby="accountMenu">
+      <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="accountMenu">
         <li role="presentation"><a role="menuitem" tabindex="-1" routerLink="profile" class="dropdown-item">My Profile</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" routerLink="settings" class="dropdown-item">Organization</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" (click)="logout()" class="dropdown-item" href="javascript:void(0)">Sign out</a></li>
       </ul>
     </div>
