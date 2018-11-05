@@ -1,0 +1,23 @@
+# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Add universal installs here if necessary
+      - npm install -g @angular/cli
+  pre_build:
+    commands:
+      - echo Installing packages
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - ng build --env=prod
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - aws s3 cp dist s3://enterprise-madelabs-io/ --recursive
+artifacts:
+  files:
+    - dist/*
