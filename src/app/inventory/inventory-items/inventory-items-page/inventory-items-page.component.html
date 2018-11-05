@@ -13,7 +13,7 @@
 </side-panel>
 
 <side-panel name="itemDetail" [visible]="isDetailVisible" (onToggleVisibility)="state.isInventoryItemDetailVisible.next($event)">
-  <inventory-item-detail [id]="selectedItemId"></inventory-item-detail>
+  <inventory-item-detail></inventory-item-detail>
 </side-panel>
 
 <side-panel name="itemImport" [visible]="isImportVisible" (onToggleVisibility)="state.isInventoryItemImportVisible.next($event)">

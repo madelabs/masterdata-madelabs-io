@@ -35,7 +35,7 @@
   <div class="tab-content">
       <div id="orders" class="tab-pane active">
           <p>
-              <button class="btn btn-primary" (click)="toggleCreatePurchaseOrderVisibility()">Create</button>
+              <button class="btn btn-primary" (click)="toggleCreatePurchaseOrderVisibility(true)">Create</button>
           </p>
           <purchase-order-list (onSelected)="onPurchaseOrderSelected($event)"></purchase-order-list>
       </div>
@@ -44,7 +44,7 @@
       </div>
       <div id="contacts" class="tab-pane">
           <p>
-              <button class="btn btn-primary" (click)="toggleCreateRoutingVisibility()">Create</button>
+              <button class="btn btn-primary" (click)="toggleCreateRoutingVisibility(true)">Create</button>
           </p>
           <p class="todo">List of contacts for this vendor</p>
       </div>

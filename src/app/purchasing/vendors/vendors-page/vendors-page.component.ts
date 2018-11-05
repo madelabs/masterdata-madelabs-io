@@ -28,8 +28,8 @@ export class VendorsPageComponent implements OnInit {
     this.router.navigate(['/purchasing/vendors', item.id]);
   }
   
-  toggleCreateVisibility(): void {
-    this.isCreateVisible = !this.isCreateVisible;
+  toggleCreateVisibility(visible: boolean): void {
+    this.isCreateVisible = visible;
   }
 
   toggleDetailVisibility(visible: boolean): void {

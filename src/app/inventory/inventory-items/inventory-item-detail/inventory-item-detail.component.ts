@@ -17,7 +17,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./inventory-item-detail.component.css']
 })
 export class InventoryItemDetailComponent implements OnInit {
+
   model: InventoryItem = null;
+  isCreatePurchaseOrderVisible: boolean = false;
   isCreateRoutingVisible: boolean = false;
   isCreateVendorVisible: boolean = false;
   isCreateWorkOrderVisible: boolean = false;
@@ -36,7 +38,7 @@ export class InventoryItemDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private service: InventoryItemService, 
-    private state: StateService,
+    public state: StateService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -88,39 +90,43 @@ export class InventoryItemDetailComponent implements OnInit {
     this.isWorkOrderDetailVisible = true;
   }
 
-  toggleCreateRoutingVisibility(): void {
-    this.isCreateRoutingVisible = !this.isCreateRoutingVisible;
+  toggleCreatePurchaseOrderVisibility(visible: boolean): void {
+    this.isCreatePurchaseOrderVisible = visible;
   }
 
-  toggleCreateWorkOrderVisibility(): void {
-    this.isCreateWorkOrderVisible = !this.isCreateWorkOrderVisible;
+  toggleCreateRoutingVisibility(visible: boolean): void {
+    this.isCreateRoutingVisible = visible;
   }
 
-  toggleCreateVendorVisibility(): void {
-    this.isCreateVendorVisible = !this.isCreateVendorVisible;
+  toggleCreateWorkOrderVisibility(visible: boolean): void {
+    this.isCreateWorkOrderVisible = visible;
+  }
+
+  toggleCreateVendorVisibility(visible: boolean): void {
+    this.isCreateVendorVisible = visible;
   }
   
-  toggleEditItemVisibility(): void {
-    this.isEditItemVisible = !this.isEditItemVisible;
+  toggleEditItemVisibility(visible: boolean): void {
+    this.isEditItemVisible = visible;
   }
 
-  toggleInventoryStockDetailVisibility(): void {
-    this.isInventoryStockDetailVisible = !this.isInventoryStockDetailVisible;
+  toggleInventoryStockDetailVisibility(visible: boolean): void {
+    this.isInventoryStockDetailVisible = visible;
   }
 
-  togglePurchaseOrderDetailVisibility(): void {
-    this.isPurchaseOrderDetailVisible = !this.isPurchaseOrderDetailVisible;
+  togglePurchaseOrderDetailVisibility(visible: boolean): void {
+    this.isPurchaseOrderDetailVisible = visible;
   }
 
-  toggleRoutingDetailVisibility(): void {
-    this.isRoutingDetailVisible = !this.isRoutingDetailVisible;
+  toggleRoutingDetailVisibility(visible: boolean): void {
+    this.isRoutingDetailVisible = visible;
   }
 
-  toggleVendorDetailVisibility(): void {
-    this.isVendorDetailVisible = !this.isVendorDetailVisible;
+  toggleVendorDetailVisibility(visible: boolean): void {
+    this.isVendorDetailVisible = visible;
   }
 
-  toggleWorkOrderDetailVisibility(): void {
-    this.isWorkOrderDetailVisible = !this.isWorkOrderDetailVisible;
+  toggleWorkOrderDetailVisibility(visible: boolean): void {
+    this.isWorkOrderDetailVisible = visible;
   }
 }

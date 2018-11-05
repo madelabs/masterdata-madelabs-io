@@ -10,7 +10,7 @@ export class InventoryItem {
         public name: string = null,
         public revision: string = null,
         public statusId: string = null,
-        public unitOfMeasureId: string = null,
+        public unitOfMeasure: string = null,
         public weight: number = null,
         public width: number = null,
         public activity: AuditEntryListItem[] = null,

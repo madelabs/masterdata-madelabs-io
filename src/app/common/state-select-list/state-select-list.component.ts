@@ -27,8 +27,8 @@ export class StateSelectListComponent implements ControlValueAccessor, OnInit {
     this.service.getSelectListCollection(this.countryId).then(data => this.list = data);
   }
 
-  private _onChange = (_: any) => { };
-  private _onTouched = () => { };
+  public _onChange = (_: any) => { };
+  public _onTouched = () => { };
   public writeValue(val: any) {
     this.model = val;
   }

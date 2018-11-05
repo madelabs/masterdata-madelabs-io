@@ -28,8 +28,8 @@ export class PurchaseOrdersPageComponent implements OnInit {
     this.router.navigate(['/purchasing/purchase-orders', item.id]);
   }
   
-  toggleCreateVisibility(): void {
-    this.isCreateVisible = !this.isCreateVisible;
+  toggleCreateVisibility(visible: boolean): void {
+    this.isCreateVisible = visible;
   }
 
   toggleDetailVisibility(visible: boolean): void {

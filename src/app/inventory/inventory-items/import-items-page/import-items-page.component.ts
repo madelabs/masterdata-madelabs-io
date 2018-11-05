@@ -15,4 +15,7 @@ export class ImportItemsPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  submit(): void {
+    // todo
+  }
 }

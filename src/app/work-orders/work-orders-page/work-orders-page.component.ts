@@ -22,8 +22,8 @@ export class WorkOrdersPageComponent implements OnInit {
     this.isDetailVisible = true;
   }
 
-  toggleCreateVisibility(): void {
-    this.isCreateVisible = !this.isCreateVisible;
+  toggleCreateVisibility(visible: boolean): void {
+    this.isCreateVisible = visible;
   }
 
   toggleDetailVisibility(visible: boolean): void {

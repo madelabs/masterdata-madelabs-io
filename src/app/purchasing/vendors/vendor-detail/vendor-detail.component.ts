@@ -26,11 +26,11 @@ export class VendorDetailComponent implements OnInit {
     this.isPurchasingOrderDetailVisible = true;
   }
 
-  toggleCreatePurchaseOrderVisibility(): void {
-    this.isCreatePurchasingOrderVisible = !this.isCreatePurchasingOrderVisible;
+  toggleCreatePurchaseOrderVisibility(visible: boolean): void {
+    this.isCreatePurchasingOrderVisible = visible;
   }
 
-  togglePurchaseOrderDetailVisibility(): void {
-    this.isPurchasingOrderDetailVisible = !this.isPurchasingOrderDetailVisible;
+  togglePurchaseOrderDetailVisibility(visible: boolean): void {
+    this.isPurchasingOrderDetailVisible = visible;
   }
 }

@@ -19,4 +19,7 @@ export class ChangeBillingFormComponent implements OnInit {
     }    
   }
 
+  submit(): void {
+    // todo
+  }
 }

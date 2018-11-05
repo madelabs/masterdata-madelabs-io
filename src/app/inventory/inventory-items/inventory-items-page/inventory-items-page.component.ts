@@ -21,7 +21,7 @@ export class InventoryItemsPageComponent implements OnInit {
     private inventoryItemService: InventoryItemService,
     private route: ActivatedRoute,
     private router: Router,
-    private state: StateService) { }
+    public state: StateService) { }
 
   ngOnInit() {
     this.setupPageByUrl();
