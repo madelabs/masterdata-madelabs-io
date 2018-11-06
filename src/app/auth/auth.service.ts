@@ -81,7 +81,7 @@ export class AuthService {
     localStorage.removeItem('auth_expires');
 
     // redirect to logout page
-    const logoutUrl = `${environment.identity_url}/logout?client_id=${environment.client_id}&logout_uri=http://localhost:8080`;
+    const logoutUrl = `${environment.identity_url}/logout?client_id=${environment.client_id}&logout_uri=${environment.base_url}`;
     window.location.href = logoutUrl;
   }
 }
