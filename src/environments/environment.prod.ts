@@ -5,5 +5,5 @@ export const environment = {
   client_id: '75m1gtceorsm9dbdhosol8a025',
   identity_url: 'https://made.auth.us-east-2.amazoncognito.com',
   ga: null,
-  redirect_uri: this.base_url + '/callback' 
+  redirect_uri: 'https://enterprise.madelabs.io/callback' 
 };
