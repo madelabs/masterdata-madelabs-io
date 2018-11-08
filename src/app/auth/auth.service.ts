@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { StateService } from '../common/state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthService {
 
   constructor(
-    private router: Router) { }
+    private router: Router,
+    private state: StateService) { }
 
   getAccessToken(): string {
     return JSON.parse(localStorage.getItem('auth_access_token'));
@@ -40,7 +42,6 @@ export class AuthService {
     }
 
     var expires = this.getTokenExpiration();
-    console.log(expires, new Date(), expires > new Date());
     if (expires > new Date()) {
       return true;
     }
@@ -68,6 +69,10 @@ export class AuthService {
     localStorage.setItem('auth_access_token', JSON.stringify(access_token));
     localStorage.setItem('auth_token_type', JSON.stringify(token_type));
     localStorage.setItem('auth_expires', JSON.stringify(expires));
+
+    // set current user in state
+    var user = this.getUser();
+    this.state.user.next(user);
 
     // redirect to homepage
     this.router.navigate(['/']);

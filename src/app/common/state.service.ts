@@ -9,6 +9,7 @@ export class StateService {
 
   constructor() { }
 
+  public user = new Subject<any>();
   public activeInventoryItem = new BehaviorSubject<InventoryItem>(null);
 
   public isInventoryItemCreateVisible = new Subject<boolean>();
