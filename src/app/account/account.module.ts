@@ -4,19 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginFormComponent } from './login-form/login-form.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { AccountService } from './account.service';
-import { ForgotPasswordPageComponent } from './forgot-password-page/forgot-password-page.component';
 import { AuthGuard } from '../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'forgot-password', component: ForgotPasswordPageComponent },
-  { path: 'login', component: LoginPageComponent },
   { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: RegistrationPageComponent }
 ];
@@ -29,15 +24,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [
-    LoginFormComponent, 
-    LoginPageComponent,
     RegistrationFormComponent, 
     RegistrationPageComponent, 
     ProfilePageComponent, 
-    ProfileFormComponent, ForgotPasswordPageComponent
-  ],
-  exports: [
-    LoginFormComponent
+    ProfileFormComponent
   ],
   providers: [
     AccountService

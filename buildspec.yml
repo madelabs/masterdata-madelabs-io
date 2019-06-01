@@ -3,6 +3,8 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 10
     commands:
       - echo Add universal installs here if necessary
       - npm install -g @angular/cli
@@ -17,7 +19,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws s3 cp dist s3://enterprise-madelabs-io/ --recursive
+      - aws s3 cp dist s3://masterdata-madelabs-io/ --recursive
 artifacts:
   files:
     - dist/*

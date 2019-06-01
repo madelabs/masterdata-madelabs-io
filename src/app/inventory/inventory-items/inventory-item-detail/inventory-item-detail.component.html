@@ -5,7 +5,7 @@
         <!--<button class="btn btn-default">Buy</button>-->
         <!--<button class="btn btn-default">Quote</button>-->
         <!--<button class="btn btn-default">Sell</button>-->
-        <button class="btn btn-default">Print</button>
+        <!--<button class="btn btn-default">Print</button>-->
         <button class="btn btn-danger" (click)="delete(model)">Disable</button>
     </p>
 
@@ -76,9 +76,9 @@
         <!-- <li class="nav-item">
             <a class="nav-link active" href="" data-toggle="tab" data-target="#stats">Stats</a>
         </li> -->
-        <!--<li class="nav-item">-->
-        <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#vendors">Vendors</a>-->
-        <!--</li>-->
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#vendors">Vendors</a>
+        </li>
         <!--<li class="nav-item">-->
         <!--    <a class="nav-link" href="" data-toggle="tab" data-target="#routers">Routers</a>-->
         <!--</li>-->
@@ -134,12 +134,13 @@
             <label for="cost">Cost per Unit:</label>
             <span class="form-control">$3.14</span><br>
         </div> -->
-        <!--<div id="vendors" class="tab-pane">-->
-        <!--    <p>-->
-        <!--        <button class="btn btn-primary" (click)="toggleCreateVendorVisibility(true)">Create</button>-->
-        <!--    </p>-->
-        <!--    <vendor-list (onSelected)="onVendorSelected($event)"></vendor-list>-->
-        <!--</div>-->
+        <div id="vendors" class="tab-pane">
+            <p class="todo">Add ability to select existing vendor</p>
+            <p> 
+                <button class="btn btn-primary" (click)="toggleCreateVendorVisibility(true)">Create</button>
+            </p>
+            <vendor-list (onSelected)="onVendorSelected($event)"></vendor-list>
+        </div>
         <!--<div id="routers" class="tab-pane">-->
         <!--    <p>-->
         <!--        <button class="btn btn-primary" (click)="toggleCreateRoutingVisibility(true)">Create</button>-->

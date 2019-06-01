@@ -55,6 +55,20 @@
         <unit-of-measure-select-list name="unitOfMeasure" [(ngModel)]="model.unitOfMeasure"></unit-of-measure-select-list>
     </div>
 
+    <div class="form-group">
+        <label class="checkbox"><input type="checkbox" class="checkbox" [(ngModel)]="model.isForSale"> Is For Sale</label>
+    </div>
+
+    <section *ngIf="model.isForSale">
+        <div class="form-group">
+            <label class="checkbox"><input type="checkbox" class="checkbox" [(ngModel)]="model.allowBackorders" #allowBackorders> Allow Backorders</label>
+        </div>
+    </section>
+
+    <div class="form-group">
+        <label class="checkbox"><input type="checkbox" class="checkbox" [(ngModel)]="model.isManufacturable" #isManufacturable> Is Manufacturable</label>
+    </div>
+
     <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
     <button type="submit" class="btn btn-success">Save</button>
   </form>
